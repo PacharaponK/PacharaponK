@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1 align="center">Hi there, I'm Pacharapon Ketkaew 👋</h1>
+  <h3 align="center">Software Engineer | FullStack Developer</h3>
+</div>
 
-## Getting Started
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2196F3&center=true&vCenter=true&width=435&lines=I+build+things+for+the+web.;I+love+React+and+Next.js.;Open+to+new+opportunities." alt="Typing SVG" />
+</div>
 
-First, run the development server:
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🚀 About Me / เกี่ยวกับผม
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 💼 I’m interested in **Software Engineer, FullStack Developer** roles
+  <br> (สนใจร่วมงานในตำแหน่ง Software Engineer และ FullStack Developer)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🌱 I’m currently learning **Advanced React Patterns & System Design**
+  <br> (กำลังศึกษาเรื่อง Design Patterns และ System Design)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 💬 Ask me about **Next.js, Frontend Development, Nest.js, Backend Development**
+  <br> (แลกเปลี่ยนความรู้เรื่องทั้ง Frontend และ Backend ได้นะครับ)
 
-## Learn More
+- 📫 How to reach me: **ballxlenver7@gmail.com**
+  <br> (ติดต่อผมได้ที่อีเมลนี้เลยครับ)
 
-To learn more about Next.js, take a look at the following resources:
+<br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=react,nextjs,ts,js,html,css,tailwind,nodejs,git,github,vscode,docker,redis,mongodb" />
+</div>
 
-## Deploy on Vercel
+<br/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📊 GitHub Stats
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  <a href="https://github.com/PacharaponK">
+  <img src="https://github-readme-stats.vercel.app/api?username=PacharaponK&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000" alt="PacharaponK's GitHub stats" />
+  </a>
+  <a href="https://github.com/PacharaponK">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PacharaponK&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000" alt="Top Languages" />
+  </a>
+</div>
+
+<br/>
+
+### 🤝 Connect with Me
+
+<div align="center">
+  <a href="https://www.linkedin.com/in/pacharapon-ketkaew/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/PacharaponK">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="mailto:ballxlenver7@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</div>
