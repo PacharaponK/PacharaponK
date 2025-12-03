@@ -1,26 +1,481 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================
+   DESIGN TOKENS - Portfolio Design System
+   ============================================ */
+
+@theme {
+  /* ----------------------------------------
+     COLOR TOKENS
+     ---------------------------------------- */
+  
+  /* Base Colors */
+  --color-background: #FAF9F6;
+  --color-foreground: #1A1A1A;
+  --color-surface: #FFFFFF;
+  
+  /* Brand Colors */
+  --color-primary: #1A1A1A;
+  --color-secondary: #525252;
+  --color-accent: #2563EB;
+  
+  /* Neutral Palette */
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #E5E5E5;
+  --color-neutral-300: #D4D4D4;
+  --color-neutral-400: #A3A3A3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0A0A0A;
+  
+  /* Accent Palette (Royal Blue) */
+  --color-accent-50: #EFF6FF;
+  --color-accent-100: #DBEAFE;
+  --color-accent-200: #BFDBFE;
+  --color-accent-300: #93C5FD;
+  --color-accent-400: #60A5FA;
+  --color-accent-500: #3B82F6;
+  --color-accent-600: #2563EB;
+  --color-accent-700: #1D4ED8;
+  --color-accent-800: #1E40AF;
+  --color-accent-900: #1E3A8A;
+  
+  /* Feedback Colors */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* ----------------------------------------
+     TYPOGRAPHY TOKENS
+     ---------------------------------------- */
+  
+  /* Font Families - ใช้ CSS Variables จาก Next.js Google Fonts */
+  --font-heading: var(--font-heading), "Space Grotesk", system-ui, sans-serif;
+  --font-body: var(--font-body), "Plus Jakarta Sans", var(--font-thai), system-ui, sans-serif;
+  --font-thai: var(--font-thai), "IBM Plex Sans Thai", system-ui, sans-serif;
+  --font-mono: var(--font-mono), "Fira Code", ui-monospace, monospace;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+  --text-9xl: 8rem;        /* 128px */
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* ----------------------------------------
+     SPACING TOKENS
+     ---------------------------------------- */
+  --spacing-0: 0;
+  --spacing-px: 1px;
+  --spacing-0_5: 0.125rem;  /* 2px */
+  --spacing-1: 0.25rem;     /* 4px */
+  --spacing-1_5: 0.375rem;  /* 6px */
+  --spacing-2: 0.5rem;      /* 8px */
+  --spacing-2_5: 0.625rem;  /* 10px */
+  --spacing-3: 0.75rem;     /* 12px */
+  --spacing-3_5: 0.875rem;  /* 14px */
+  --spacing-4: 1rem;        /* 16px */
+  --spacing-5: 1.25rem;     /* 20px */
+  --spacing-6: 1.5rem;      /* 24px */
+  --spacing-7: 1.75rem;     /* 28px */
+  --spacing-8: 2rem;        /* 32px */
+  --spacing-9: 2.25rem;     /* 36px */
+  --spacing-10: 2.5rem;     /* 40px */
+  --spacing-11: 2.75rem;    /* 44px */
+  --spacing-12: 3rem;       /* 48px */
+  --spacing-14: 3.5rem;     /* 56px */
+  --spacing-16: 4rem;       /* 64px */
+  --spacing-20: 5rem;       /* 80px */
+  --spacing-24: 6rem;       /* 96px */
+  --spacing-28: 7rem;       /* 112px */
+  --spacing-32: 8rem;       /* 128px */
+
+  /* ----------------------------------------
+     BORDER RADIUS TOKENS
+     ---------------------------------------- */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;    /* 2px */
+  --radius-default: 0.25rem; /* 4px */
+  --radius-md: 0.375rem;    /* 6px */
+  --radius-lg: 0.5rem;      /* 8px */
+  --radius-xl: 0.75rem;     /* 12px */
+  --radius-2xl: 1rem;       /* 16px */
+  --radius-3xl: 1.5rem;     /* 24px */
+  --radius-full: 9999px;
+
+  /* ----------------------------------------
+     SHADOW TOKENS
+     ---------------------------------------- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-default: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* ----------------------------------------
+     ANIMATION & TRANSITION TOKENS
+     ---------------------------------------- */
+  
+  /* Easing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.7, 0, 0.3, 1);
+  
+  /* Durations */
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-800: 800ms;
+  --duration-1000: 1000ms;
+
+  /* ----------------------------------------
+     Z-INDEX TOKENS
+     ---------------------------------------- */
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-cursor: 9999;
+  --z-noise: 9000;
+  --z-preloader: 99999;
+
+  /* ----------------------------------------
+     BREAKPOINTS
+     ---------------------------------------- */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+
+@utility text-balance {
+  text-wrap: balance;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@utility animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* Hide default cursor for all elements */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+a, button, [role="button"], input, select, textarea, label, [tabindex] {
+  cursor: none !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-300);
+  border-radius: var(--radius-default);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-400);
+}
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+@layer components {
+  /* Liquid Glass Navigation */
+  .nav-glass {
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.15) 0%,
+      rgb(255 255 255 / 0.05) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgb(255 255 255 / 0.25);
+    box-shadow: 
+      0 8px 32px rgb(0 0 0 / 0.08),
+      inset 0 1px 0 rgb(255 255 255 / 0.4),
+      inset 0 -1px 0 rgb(0 0 0 / 0.05);
+    transition: 
+      background var(--duration-300) var(--ease-smooth),
+      box-shadow var(--duration-300) var(--ease-smooth),
+      transform var(--duration-300) var(--ease-smooth);
+  }
+  
+  .nav-glass:hover {
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.2) 0%,
+      rgb(255 255 255 / 0.1) 100%
+    );
+    box-shadow: 
+      0 12px 40px rgb(0 0 0 / 0.12),
+      inset 0 1px 0 rgb(255 255 255 / 0.5),
+      inset 0 -1px 0 rgb(0 0 0 / 0.05);
+  }
+
+  /* Custom Cursor */
+  .cursor-dot,
+  .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: var(--radius-full);
+    z-index: var(--z-cursor);
+    pointer-events: none;
+  }
+  
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    transition: transform var(--duration-100);
+  }
+  
+  .cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(0 0 0 / 0.4);
+    transition: 
+      width var(--duration-200),
+      height var(--duration-200),
+      background-color var(--duration-200),
+      transform var(--duration-100);
+  }
+
+  .cursor-outline.hovered {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(0 0 0 / 0.05);
+    border-color: transparent;
+    backdrop-filter: blur(2px);
+  }
+
+  /* Noise Texture Overlay */
+  .noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: var(--z-noise);
+    opacity: 0.05;
+    background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+    filter: invert(1);
+  }
+
+  /* Project Item Hover Effect */
+  .project-item:hover .project-img {
+    opacity: 1;
+    transform: scale(1) rotate(2deg);
+  }
+
+  /* Interactive Gradient Blob */
+  .gradient-blob {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgb(37 99 235 / 0.08) 0%, rgb(255 255 255 / 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    transition: 
+      left var(--duration-800) var(--ease-smooth),
+      top var(--duration-800) var(--ease-smooth);
+  }
+
+  /* Reveal Animation */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 
+      opacity var(--duration-800) ease-out,
+      transform var(--duration-800) var(--ease-smooth);
+  }
+  
+  .reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Character Animation */
+  .char-span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: charAppear var(--duration-800) var(--ease-smooth) forwards;
+    white-space: pre;
+  }
+
+  /* GSAP Hero Character Animation */
+  .hero-char {
+    display: inline-block;
+    transform-origin: center bottom;
+    will-change: transform, opacity;
+  }
+
+  /* GSAP Animated Text Styles */
+  .animated-text {
+    overflow: hidden;
+  }
+  
+  .split-line {
+    display: block;
+    overflow: hidden;
+  }
+  
+  .split-word {
+    display: inline-block;
+    transform-origin: center bottom;
+    will-change: transform, opacity;
+  }
+  
+  .split-char {
+    display: inline-block;
+    transform-origin: center bottom;
+    will-change: transform, opacity;
+  }
+
+  /* Preloader */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--color-background);
+    z-index: var(--z-preloader);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform var(--duration-800) var(--ease-elastic);
+  }
+  
+  .loader-bar {
+    width: 200px;
+    height: 2px;
+    background: var(--color-neutral-200);
+    margin-top: var(--spacing-5);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loader-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--color-primary);
+    transition: width var(--duration-200);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes charAppear {
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Nav Glass Shimmer Effect */
+@keyframes nav-shimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Nav Glass Glow Rotation */
+@keyframes nav-glow-rotate {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
