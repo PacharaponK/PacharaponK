@@ -37,10 +37,10 @@
 
 <div align="center">
   <a href="https://github.com/PacharaponK">
-  <img src="https://github-readme-stats.vercel.app/api?username=PacharaponK&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000" alt="PacharaponK's GitHub stats" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=PacharaponK&show_icons=true&theme=tokyonight&hide_border=true&bg_color=transparent" alt="PacharaponK's GitHub stats" />
   </a>
   <a href="https://github.com/PacharaponK">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PacharaponK&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000" alt="Top Languages" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=PacharaponK&layout=compact&theme=tokyonight&hide_border=true&bg_color=transparent" alt="Top Languages" />
   </a>
 </div>
 
