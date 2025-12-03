@@ -47,6 +47,42 @@ export default function ScrambleText({
         },
         ease: "none",
         delay: delay,
+        onComplete: () => {
+          // Manually split text into spans for hover effect
+          const content = element.innerText;
+          element.innerHTML = content
+            .split("")
+            .map(
+              (char) =>
+                `<span class="inline-block cursor-default hover-char transition-colors">${char}</span>`
+            )
+            .join("");
+
+          // Add hover listeners to new spans
+          const spans = element.querySelectorAll(".hover-char");
+          spans.forEach((span) => {
+            span.addEventListener("mouseenter", () => {
+              gsap.to(span, {
+                scale: 1.3,
+                y: -10,
+                rotate: "random(-10, 10)",
+                color: "#2563EB",
+                duration: 0.3,
+                ease: "back.out(1.7)",
+              });
+            });
+            span.addEventListener("mouseleave", () => {
+              gsap.to(span, {
+                scale: 1,
+                y: 0,
+                rotate: 0,
+                color: "inherit",
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+          });
+        },
       });
     }
 

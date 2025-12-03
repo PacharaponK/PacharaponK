@@ -22,7 +22,7 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
       // Create SplitText instance
       splitRef.current = new SplitText(containerRef.current, {
         type: "chars",
-        charsClass: "hero-char",
+        charsClass: "hero-char inline-block cursor-default",
       });
 
       // Animate each character
@@ -41,6 +41,31 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
           ease: "power4.out",
           stagger: 0.03,
           delay: delay,
+          onComplete: () => {
+            // Add hover effects after entrance animation
+            splitRef.current?.chars.forEach((char) => {
+              char.addEventListener("mouseenter", () => {
+                gsap.to(char, {
+                  skewX: -15,
+                  scale: 0.9,
+                  y: 5,
+                  color: "#EA580C", // Orange highlight
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+              char.addEventListener("mouseleave", () => {
+                gsap.to(char, {
+                  skewX: 0,
+                  scale: 1,
+                  y: 0,
+                  color: "inherit",
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+            });
+          },
         }
       );
     }

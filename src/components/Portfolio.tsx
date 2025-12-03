@@ -12,6 +12,7 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import MagneticButton from "@/components/MagneticButton";
 import ProjectItem from "@/components/ProjectItem";
 import AnimatedText from "@/components/AnimatedText";
+import Sticker from "@/components/Sticker";
 
 const projects = [
   {
@@ -76,6 +77,7 @@ export default function Portfolio() {
 
       {/* Navigation */}
       <nav className="nav-glass fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-50 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between rounded-full">
+        {/* ... existing nav content */}
         <MagneticButton
           as="a"
           href="#"
@@ -109,8 +111,15 @@ export default function Portfolio() {
       {/* Hero Section */}
       <header className="relative min-h-screen flex flex-col justify-between pt-32 pb-6 px-4 md:px-12 border-b border-black/5 overflow-hidden">
         {/* TOP: Large Text (Left) */}
-        <div className="z-10 w-full">
-          <h1 className="font-heading font-extrabold tracking-tighter leading-[0.8] text-primary select-none cursor-default">
+        <div className="z-10 w-full relative">
+          {/* Stickers for Top Text */}
+          {isLoaded && (
+            <>
+              <Sticker type="star" className="w-12 h-12 top-[-20px] left-[20%] md:left-[15%]" delay={1.2} />
+              <Sticker type="smiley" className="w-16 h-16 top-[70%] right-[10%] md:right-[30%] !z-0" delay={1.5} />
+            </>
+          )}
+          <h1 className="font-heading font-extrabold tracking-tighter leading-[0.8] text-primary select-none cursor-default relative z-10">
             <ScrambleText
               text="PACHARAPON"
               isLoaded={isLoaded}
@@ -148,7 +157,10 @@ export default function Portfolio() {
         {/* BOTTOM: Text (Right) & Description (Left) */}
         <div className="flex flex-col md:flex-row items-end justify-between w-full z-10 relative">
           {/* Description & Buttons (Left Side) */}
-          <RevealOnScroll className="order-2 md:order-1 max-w-md mb-2 md:mb-4 md:mr-8 delay-700">
+          <RevealOnScroll className="order-2 md:order-1 max-w-md mb-2 md:mb-4 md:mr-8 delay-700 relative">
+            {isLoaded && (
+              <Sticker type="arrow" className="w-20 h-20 -top-24 right-0 rotate-45 hidden md:block" delay={1.8} />
+            )}
             <p className="font-thai text-gray-600 text-sm md:text-base font-light leading-relaxed mb-6">
               สร้างสรรค์ประสบการณ์ดิจิทัลด้วยการผสมผสานระหว่าง Code และ Design
               เน้น Web Animation และ Interactive UI
@@ -172,8 +184,14 @@ export default function Portfolio() {
           </RevealOnScroll>
 
           {/* Bottom Text (Right Side) */}
-          <div className="order-1 md:order-2 w-full text-right mb-8 md:mb-0">
-            <h1 className="font-heading font-extrabold tracking-tighter leading-[0.8] text-primary select-none cursor-default">
+          <div className="order-1 md:order-2 w-full text-right mb-8 md:mb-0 relative">
+            {isLoaded && (
+              <>
+                <Sticker type="sparkle" className="w-10 h-10 top-[-10px] left-[10%]" delay={1.4} />
+                <Sticker type="blob" className="w-32 h-32 -z-10 bottom-[-20px] right-[-20px] opacity-50" delay={2.0} />
+              </>
+            )}
+            <h1 className="font-heading font-extrabold tracking-tighter leading-[0.8] text-primary select-none cursor-default relative z-10">
               <HeroText text="KETKAEW" isLoaded={isLoaded} delay={0.8} />
             </h1>
           </div>
