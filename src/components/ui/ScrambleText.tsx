@@ -33,7 +33,15 @@ export default function ScrambleText({
 
     if (isLoaded && element) {
       // Initial state - empty or scrambled
-      gsap.set(element, { opacity: 1 });
+      // gsap.set(element, { opacity: 1 }); // Removed to prevent early visibility
+
+      // Fade in
+      gsap.to(element, {
+        opacity: 1,
+        duration: 0.8,
+        delay: delay,
+        ease: "power2.out",
+      });
 
       // Scramble text animation
       gsap.to(element, {

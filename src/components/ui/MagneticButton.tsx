@@ -16,7 +16,8 @@ export default function MagneticButton({
   href,
   onClick,
   as = "button",
-}: MagneticButtonProps) {
+  ...props
+}: MagneticButtonProps & React.HTMLAttributes<HTMLElement> & { target?: string; rel?: string }) {
   const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   useEffect(() => {
@@ -52,6 +53,7 @@ export default function MagneticButton({
       href={href}
       onClick={onClick}
       className={`hover-trigger ${className}`}
+      {...props}
     >
       {children}
     </Component>

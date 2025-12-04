@@ -68,6 +68,9 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
           },
         }
       );
+
+      // Make container visible after setting initial state of chars
+      gsap.set(containerRef.current, { opacity: 1 });
     }
 
     // Cleanup
@@ -82,7 +85,7 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
     <div
       ref={containerRef}
       className="block overflow-hidden whitespace-nowrap text-[18vw] md:text-[15vw] font-black"
-      style={{ perspective: "1000px" }}
+      style={{ perspective: "1000px", opacity: 0 }}
     >
       {text}
     </div>
