@@ -151,13 +151,20 @@ export const useCertificationGallery = () => {
     [currentIndex, filteredCertifications.length]
   );
 
-  // Virtual Window: Only render visible items
+  // Virtual Window: Only render visible items (with deduplication for small lists)
   const visibleItems = useMemo(() => {
-    const items = [];
     const total = filteredCertifications.length;
-    // Render +/- 2 items around current index
+    const seenIndices = new Set<number>();
+    const items: Array<
+      (typeof filteredCertifications)[0] & { originalIndex: number }
+    > = [];
+
+    // Render +/- 2 items around current index, but skip duplicates
     for (let i = -2; i <= 2; i++) {
       const index = (currentIndex + i + total) % total;
+      // Skip if this index was already added (happens when total < 5)
+      if (seenIndices.has(index)) continue;
+      seenIndices.add(index);
       items.push({
         ...filteredCertifications[index],
         originalIndex: index,

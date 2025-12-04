@@ -9,7 +9,7 @@ export default function Contact() {
   const [copyFeedback, setCopyFeedback] = useState(false);
 
   const copyEmail = () => {
-    const email = "hello@pacharapon.dev";
+    const email = "ballxlenver7@gmail.com";
     navigator.clipboard.writeText(email);
     setCopyFeedback(true);
     setTimeout(() => setCopyFeedback(false), 2000);
@@ -51,7 +51,7 @@ export default function Contact() {
             className="hover-trigger group flex items-center gap-4 text-2xl md:text-4xl text-primary hover:text-gray-500 transition-colors text-left w-full"
           >
             <span className="border-b border-black/30 pb-2">
-              hello@pacharapon.dev
+              ballxlenver7@gmail.com
             </span>
             <Copy className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>

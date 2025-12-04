@@ -4,40 +4,7 @@ import AnimatedText from "@/components/ui/AnimatedText";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import ProjectItem from "@/components/ui/ProjectItem";
 
-const projects = [
-  {
-    number: "01",
-    category: "E-COMMERCE",
-    title: "Neon Market",
-    description: "Design & Development",
-    tech: "Next.js, Stripe, Tailwind",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Neon+Market",
-  },
-  {
-    number: "02",
-    category: "FINTECH",
-    title: "CoinDash",
-    description: "Frontend Architecture",
-    tech: "React, D3.js, WebSockets",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=CoinDash",
-  },
-  {
-    number: "03",
-    category: "AGENCY",
-    title: "Vertex Studio",
-    description: "Creative Development",
-    tech: "WebGL, Three.js, GSAP",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Vertex",
-  },
-  {
-    number: "04",
-    category: "EXPERIMENTAL",
-    title: "Audio Viz",
-    description: "Personal Project",
-    tech: "Canvas API, Web Audio",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Audio+Viz",
-  },
-];
+import { projects, workSectionData } from "@/data/work";
 
 export default function Work() {
   return (
@@ -45,12 +12,12 @@ export default function Work() {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
         <h2 className="font-heading text-4xl md:text-6xl font-bold tracking-tighter text-primary">
           <AnimatedText animation="words" trigger="scroll" stagger={0.08}>
-            SELECTED
+            {workSectionData.title}
           </AnimatedText>
           <AnimatedText animation="words" trigger="scroll" delay={0.1} stagger={0.08}>
-            WORK
+            {workSectionData.subtitle}
           </AnimatedText>
-          <span className="text-gray-400 text-2xl align-top font-mono">(04)</span>
+          <span className="text-gray-400 text-2xl align-top font-mono">({String(projects.length).padStart(2, '0')})</span>
         </h2>
         <AnimatedText
           as="p"
@@ -58,7 +25,7 @@ export default function Work() {
           trigger="scroll"
           className="font-thai text-gray-500 mt-4 md:mt-0 max-w-xs text-right text-xs"
         >
-          ผลงานที่คัดสรรมาเพื่อแสดงศักยภาพด้านการออกแบบและพัฒนา
+          {workSectionData.description}
         </AnimatedText>
       </div>
 
@@ -75,7 +42,7 @@ export default function Work() {
           href="#"
           className="hover-trigger inline-block text-sm font-mono border-b border-black/30 pb-1 text-primary hover:text-[#2563EB] hover:border-[#2563EB] transition-colors"
         >
-          VIEW ALL ARCHIVES -&gt;
+          {workSectionData.viewAllText}
         </a>
       </RevealOnScroll>
     </section>

@@ -161,7 +161,7 @@ export default function CertificationGallery({ onImageClick }: { onImageClick?: 
           const { style, isActive } = getSlideStyle(cert.originalIndex);
           return (
             <div
-              key={`${cert.id}-${cert.originalIndex}`} // Unique key for virtual items
+              key={cert.originalIndex} // Stable key using originalIndex (duplicates now handled in hook)
               onClick={() => isActive && onImageClick?.(cert.image)}
               style={style}
               className="absolute w-[300px] md:w-[350px] aspect-[4/5] transition-all duration-500 ease-out cursor-pointer will-change-transform"
