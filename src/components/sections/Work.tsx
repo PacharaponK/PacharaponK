@@ -31,9 +31,9 @@ export default function Work() {
       </div>
 
       <div className="flex flex-col">
-        {projects.map((project, index) => (
+        {projects.slice(0, 4).map((project, index) => (
           <RevealOnScroll key={project.number}>
-            <ProjectItem {...project} isLast={index === projects.length - 1} />
+            <ProjectItem {...project} isLast={index === 3} />
           </RevealOnScroll>
         ))}
       </div>

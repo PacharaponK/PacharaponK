@@ -11,6 +11,7 @@ export interface Project {
   features?: string[];
   year?: string;
   role?: string;
+  status?: string;
   links?: {
     live?: string;
     github?: string;
@@ -34,8 +35,12 @@ export const projects: Project[] = [
       "ตารางเวลาและกิจกรรม",
       "ระบบจัดการ Session",
     ],
-    year: "2024",
+    year: "2025",
     role: "Full-Stack Developer",
+    status: "Production",
+    links: {
+      live: "https://barcampsongkhla.org/",
+    },
   },
   {
     id: "kruly-registration",
@@ -53,8 +58,12 @@ export const projects: Project[] = [
       "QR Code Check-in",
       "Admin Dashboard",
     ],
-    year: "2024",
+    year: "2025",
     role: "Full-Stack Developer",
+    status: "Production",
+    links: {
+      live: "https://kruly-liff-884715781180.asia-southeast1.run.app/",
+    },
   },
   {
     id: "pick-and-pay",
@@ -72,8 +81,12 @@ export const projects: Project[] = [
       "Automatic Pricing",
       "Real-time Dashboard",
     ],
-    year: "2023",
+    year: "2025",
     role: "Lead Developer",
+    status: "Closed",
+    links: {
+      github: "https://github.com/PacharaponK/pick-and-pay",
+    },
   },
   {
     id: "vehicle-detection",
@@ -92,8 +105,94 @@ export const projects: Project[] = [
       "Traffic Analysis",
       "Data Visualization",
     ],
-    year: "2023",
+    year: "2024",
     role: "AI/ML Developer",
+    status: "Closed",
+    links: {
+      github: "https://github.com/PacharaponK/Yolo-Vehicle-Detection-Web",
+    },
+  },
+  {
+    id: "archive-bia",
+    number: "05",
+    category: "PUPA TEAM",
+    title: "Archive BIA",
+    description: "WEBSITE, AI/ML",
+    tech: "", //TODO
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=BiteScore",
+    fullDescription: "=", //TODO
+    features: [], //TODO
+    year: "2025",
+    role: "Developer",
+    status: "DEVELOPMENT",
+    links: {
+      github: "https://github.com/PacharaponK/BiteScore",
+    },
+  },
+  {
+    id: "bite-score",
+    number: "06",
+    category: "CoE Project",
+    title: "BiteScore",
+    description: "WEBSITE, AI/ML",
+    tech: "", //TODO
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=BiteScore",
+    fullDescription: "=", //TODO
+    features: [], //TODO
+    year: "2025",
+    role: "Developer",
+    status: "Closed",
+    links: {
+      github: "https://github.com/PacharaponK/BiteScore",
+    },
+  },
+  {
+    id: "psu-formhub",
+    number: "07",
+    category: "PUPA TEAM",
+    title: "PSU FormHub",
+    description: "WEBSITE",
+    tech: "", //TODO
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=PSUFormHub",
+    fullDescription: "=", //TODO
+    features: [], //TODO
+    year: "2024",
+    role: "Developer",
+    status: "Closed",
+    links: {
+      github: "https://github.com/PacharaponK/PSUFormHub",
+    },
+  },
+  {
+    id: "ivory",
+    number: "08",
+    category: "PUPA TEAM",
+    title: "Ivory",
+    description: "WEBSITE",
+    tech: "", //TODO
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Ivory",
+    fullDescription: "=", //TODO
+    features: [], //TODO
+    year: "2025",
+    role: "Developer",
+    status: "Closed",
+  },
+  {
+    id: "highlearnhub",
+    number: "09",
+    category: "CoE Project",
+    title: "HighLearnHub",
+    description: "WEBSITE",
+    tech: "", //TODO
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=HighLearnHub",
+    fullDescription: "=", //TODO
+    features: [], //TODO
+    year: "2025",
+    role: "Developer",
+    status: "Closed",
+    links: {
+      github: "https://github.com/PacharaponK/HighLearnHub",
+    },
   },
 ];
 

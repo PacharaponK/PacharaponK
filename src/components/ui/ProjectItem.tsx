@@ -11,6 +11,8 @@ interface ProjectItemProps {
   description: string;
   tech: string;
   imageUrl: string;
+  year?: string;
+  status?: string;
   isLast?: boolean;
 }
 
@@ -22,6 +24,8 @@ export default function ProjectItem({
   description,
   tech,
   imageUrl,
+  year,
+  status,
   isLast = false,
 }: ProjectItemProps) {
   const imgRef = useRef<HTMLDivElement>(null);
@@ -49,9 +53,24 @@ export default function ProjectItem({
               {title}
             </h3>
           </div>
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-end gap-1">
+            <div className="flex items-center gap-2">
+              {status && (
+                <span
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider ${status === "Production"
+                      ? "bg-green-100 text-green-700"
+                      : status === "DEVELOPMENT"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : "bg-gray-100 text-gray-600"
+                    }`}
+                >
+                  {status}
+                </span>
+              )}
+              {year && <span className="text-gray-400 text-xs font-mono">{year}</span>}
+            </div>
             <span className="text-gray-500 text-sm">{description}</span>
-            <span className="text-gray-600 text-xs font-mono mt-1">{tech}</span>
+            {tech && <span className="text-gray-600 text-xs font-mono">{tech}</span>}
           </div>
         </div>
         {/* Floating Image Reveal */}

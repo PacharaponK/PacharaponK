@@ -62,26 +62,33 @@ export default function ProjectsPage() {
         </section>
 
         {/* Category Filter */}
-        <section className="py-6 px-6 md:px-12 border-b border-black/5 sticky top-[65px] z-30 bg-background/90 backdrop-blur-lg">
+        <section className="py-4 px-6 md:px-12 border-b border-black/5 sticky top-[50px] z-30 bg-background/80 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-wrap gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`hover-trigger px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 ${activeCategory === category
-                    ? "bg-primary text-white"
-                    : "bg-black/5 text-gray-600 hover:bg-black/10"
-                    }`}
-                >
-                  {category}
-                  {category !== "All" && (
-                    <span className="ml-2 opacity-60">
-                      ({projects.filter((p) => p.category === category).length})
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest hidden md:block">
+                Filter
+              </span>
+              <div className="h-4 w-px bg-black/10 hidden md:block"></div>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    className={`hover-trigger px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 border ${activeCategory === category
+                      ? "bg-primary text-white border-primary shadow-lg shadow-primary/20"
+                      : "bg-transparent text-gray-600 border-black/10 hover:border-black/30 hover:bg-black/5"
+                      }`}
+                  >
+                    {category}
+                    <span className={`ml-2 ${activeCategory === category ? "opacity-70" : "opacity-40"}`}>
+                      {category === "All"
+                        ? `(${projects.length})`
+                        : `(${projects.filter((p) => p.category === category).length})`
+                      }
                     </span>
-                  )}
-                </button>
-              ))}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </section>
