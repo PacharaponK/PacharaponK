@@ -3,6 +3,7 @@
 import Sticker from "@/components/ui/Sticker";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { services, techStack } from "@/data/about";
 
 interface AboutProps {
   isLoaded: boolean;
@@ -39,14 +40,7 @@ export default function About({ isLoaded }: AboutProps) {
               <div className="pt-12 border-t border-black/5">
                 <h4 className="font-mono text-xs text-gray-400 mb-8 uppercase tracking-widest">What I Do</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
-                  {[
-                    "Web Development",
-                    "UI/UX Design",
-                    "Frontend Architecture",
-                    "Interactive Experiences",
-                    "Technical Writing",
-                    "Creative Coding"
-                  ].map((service, i) => (
+                  {services.map((service, i) => (
                     <li key={i} className="flex items-center gap-4 group cursor-default">
                       <span className="flex items-center justify-center w-6 h-6 rounded-full border border-black/10 text-[10px] font-mono text-gray-400 group-hover:border-black group-hover:bg-black group-hover:text-white transition-all duration-300">
                         {i + 1}
@@ -94,20 +88,7 @@ export default function About({ isLoaded }: AboutProps) {
             </h3>
 
             <div className="space-y-12">
-              {[
-                {
-                  category: "CORE",
-                  items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Python"]
-                },
-                {
-                  category: "FRAMEWORKS",
-                  items: ["React", "Next.js", "Vue.js", "Tailwind CSS", "Framer Motion", "GSAP"]
-                },
-                {
-                  category: "TOOLS",
-                  items: ["Git", "Figma", "VS Code", "Vercel", "Node.js", "Three.js", "Blender"]
-                }
-              ].map((group, idx) => (
+              {techStack.map((group, idx) => (
                 <div key={idx} className="group">
                   <h4 className="font-mono text-[10px] text-gray-400 mb-6 uppercase tracking-widest flex items-center gap-4">
                     {group.category}
