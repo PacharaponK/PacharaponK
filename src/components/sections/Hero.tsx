@@ -39,7 +39,7 @@ export default function Hero({ isLoaded }: HeroProps) {
         {/* Left Pill */}
         <RevealOnScroll className="delay-300">
           <div className="border border-black/80 rounded-full px-5 py-1.5 text-xs md:text-sm font-mono uppercase tracking-wide hover:bg-black hover:text-white transition-colors duration-300 cursor-default inline-block">
-            Full Stack Developer
+            Software Engineer
           </div>
         </RevealOnScroll>
 
@@ -52,7 +52,7 @@ export default function Hero({ isLoaded }: HeroProps) {
         {/* Right Pill & Symbol */}
         <RevealOnScroll className="flex items-center gap-4 delay-500 mt-4 md:mt-0 self-end md:self-auto">
           <div className="border border-black/80 rounded-full px-5 py-1.5 text-xs md:text-sm font-mono uppercase tracking-wide hover:bg-black hover:text-white transition-colors duration-300 cursor-default">
-            2024 — 2025
+            2023 — 2025
           </div>
           <div className="text-2xl md:text-4xl font-light font-mono">+PK</div>
         </RevealOnScroll>

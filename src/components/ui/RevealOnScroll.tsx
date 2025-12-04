@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 interface RevealOnScrollProps {
   children: React.ReactNode;
   className?: string;
-  delay?: string;
+  delay?: string | number;
 }
 
 export default function RevealOnScroll({ children, className = "", delay = "" }: RevealOnScrollProps) {
@@ -26,19 +26,23 @@ export default function RevealOnScroll({ children, className = "", delay = "" }:
       }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    const currentElement = elementRef.current;
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
   }, []);
 
+  const style = typeof delay === "number" ? { transitionDelay: `${delay}s` } : {};
+  const delayClass = typeof delay === "string" ? delay : "";
+
   return (
-    <div ref={elementRef} className={`reveal-up ${delay} ${className}`}>
+    <div ref={elementRef} className={`reveal-up ${delayClass} ${className}`} style={style}>
       {children}
     </div>
   );
