@@ -66,8 +66,9 @@ export default function Hero({ isLoaded }: HeroProps) {
             <Sticker type="arrow" className="w-20 h-20 -top-24 right-0 rotate-45 hidden md:block" delay={1.8} />
           )}
           <p className="font-thai text-gray-600 text-sm md:text-base font-light leading-relaxed mb-6">
-            สร้างสรรค์ประสบการณ์ดิจิทัลด้วยการผสมผสานระหว่าง Code และ Design
-            เน้น Web Animation และ Interactive UI
+            พัฒนาระบบดิจิทัลด้วย Software Engineering และ Fullstack Development
+            การเชื่อมโยง AI, IoT และ Web Technology
+            สร้างโซลูชันที่ตอบโจทย์ ใช้งานได้จริง และปลอดภัย
           </p>
           <div className="flex gap-4">
             <MagneticButton

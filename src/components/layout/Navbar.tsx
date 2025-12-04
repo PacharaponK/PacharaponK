@@ -18,8 +18,9 @@ export default function Navbar() {
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-4 lg:gap-6">
         <div className="flex items-center gap-4 lg:gap-6 font-mono text-xs text-secondary">
-          <a href="#work" className="hover-trigger hover:text-primary transition-colors">Work</a>
           <a href="#about" className="hover-trigger hover:text-primary transition-colors">About</a>
+          <a href="#work" className="hover-trigger hover:text-primary transition-colors">Work</a>
+          <a href="#certifications" className="hover-trigger hover:text-primary transition-colors">Certification</a>
           <a href="#contact" className="hover-trigger hover:text-primary transition-colors">Contact</a>
         </div>
 

@@ -37,7 +37,7 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: "Pacharapon Ketkaew - Portfolio",
-  description: "Full Stack Developer - สร้างสรรค์ประสบการณ์ดิจิทัลด้วยการผสมผสานระหว่าง Code และ Design",
+  description: "Full Stack Developer - พัฒนาระบบดิจิทัลด้วย Software Engineering และ Full-Stack Development และการเชื่อมโยง AI, IoT และ Web Technology สร้างโซลูชันที่ตอบโจทย์และใช้งานได้จริง",
 };
 
 export default function RootLayout({

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Sticker from "@/components/ui/Sticker";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -27,14 +28,44 @@ export default function About({ isLoaded }: AboutProps) {
             </h3>
 
             <div className="space-y-12 relative z-10">
-              <div className="font-thai text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-light text-gray-800">
-                <span className="font-heading font-bold text-primary block mb-4 text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                  Pacharapon Ketkaew
-                </span>
-                <p>
-                  Creative Developer ที่หลงใหลในการสร้างสรรค์ประสบการณ์ดิจิทัลที่น่าจดจำ
-                  ผสมผสานระหว่าง <span className="font-serif italic text-black bg-yellow-100 px-2">Design</span> และ <span className="font-serif italic text-black bg-blue-100 px-2">Technology</span> อย่างลงตัว
-                </p>
+              {/* Profile Section with Image */}
+              <div className="flex flex-col gap-6">
+                {/* Profile Image + Name Row */}
+                <div className="flex items-center gap-6">
+                  {/* Profile Image */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-28 h-28 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-black/5 shadow-lg bg-gray-100 relative">
+                      <Image
+                        src="/image/profile.png"
+                        alt="Pacharapon Ketkaew"
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                    {/* Decorative element */}
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      👋
+                    </div>
+                  </div>
+
+                  {/* Name */}
+                  <div className="flex flex-col">
+                    <span className="font-heading font-bold text-primary text-3xl md:text-5xl lg:text-6xl tracking-tight">
+                      Pacharapon Ketkaew
+                    </span>
+                    <span className="font-mono text-sm md:text-base text-gray-600 mt-1">
+                      aka &ldquo;Ball&rdquo;
+                    </span>
+                  </div>
+                </div>
+
+                {/* Introduction Text */}
+                <div className="font-thai text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-light text-gray-800">
+                  <p>
+                    ผมเป็น Software Engineer ที่ชื่นชอบในการพัฒนาเว็บทั้ง <span className="font-serif italic text-black bg-blue-100 px-2">Frontend</span> และ <span className="font-serif italic text-black bg-purple-100 px-2">Backend</span> พร้อมทำตั้งแต่เขียนโค้ดไปจนถึง <span className="font-serif italic text-black bg-green-100 px-2">Deploy</span> และนำความรู้ต่างๆไม่ว่าจะเป็น <span className="font-serif italic text-black bg-yellow-100 px-2">AI</span> หรือ <span className="font-serif italic text-black bg-orange-100 px-2">IoT</span> มาปรับใช้
+                  </p>
+                </div>
               </div>
 
               <div className="pt-12 border-t border-black/5">

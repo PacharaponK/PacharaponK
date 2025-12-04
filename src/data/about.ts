@@ -1,10 +1,10 @@
 export const services = [
-  "Web Development",
-  "UI/UX Design",
-  "Frontend Architecture",
-  "Interactive Experiences",
-  "Technical Writing",
-  "Creative Coding",
+  "Full-Stack Development",
+  "Backend Architecture",
+  "Database Design",
+  "API Development",
+  "AI/ML Integration",
+  "IoT Systems",
 ];
 
 export const techStack = [
