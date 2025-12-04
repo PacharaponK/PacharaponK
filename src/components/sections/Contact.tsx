@@ -67,22 +67,22 @@ export default function Contact() {
           <h4 className="font-mono text-gray-400 text-xs uppercase">Socials</h4>
           <div className="flex flex-col gap-2 text-lg text-primary">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/pacharapon-ketkaew-567435374/"
               className="hover-trigger hover:text-[#2563EB] transition-colors flex items-center gap-2"
             >
               LinkedIn <ArrowUpRight className="w-4 h-4" />
             </a>
             <a
-              href="#"
+              href="https://github.com/PacharaponK"
               className="hover-trigger hover:text-[#2563EB] transition-colors flex items-center gap-2"
             >
               GitHub <ArrowUpRight className="w-4 h-4" />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/pacharapon.ketkaew/"
               className="hover-trigger hover:text-[#2563EB] transition-colors flex items-center gap-2"
             >
-              Instagram <ArrowUpRight className="w-4 h-4" />
+              Facebook <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>

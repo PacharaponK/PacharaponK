@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import ProjectItem from "@/components/ui/ProjectItem";
@@ -38,12 +39,12 @@ export default function Work() {
       </div>
 
       <RevealOnScroll className="mt-12 text-center">
-        <a
-          href="#"
+        <Link
+          href="/projects"
           className="hover-trigger inline-block text-sm font-mono border-b border-black/30 pb-1 text-primary hover:text-[#2563EB] hover:border-[#2563EB] transition-colors"
         >
           {workSectionData.viewAllText}
-        </a>
+        </Link>
       </RevealOnScroll>
     </section>
   );

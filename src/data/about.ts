@@ -2,25 +2,30 @@ export const services = [
   "Full-Stack Development",
   "Backend Architecture",
   "Database Design",
-  "API Development",
   "AI/ML Integration",
-  "IoT Systems",
 ];
 
 export const techStack = [
   {
     category: "CORE",
-    items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Python"],
+    items: [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "Python",
+      "Arduino",
+    ],
   },
   {
     category: "FRAMEWORKS",
     items: [
       "React",
       "Next.js",
-      "Vue.js",
+      "Nest.js",
+      "Express.js",
       "Tailwind CSS",
-      "Framer Motion",
-      "GSAP",
+      "Shadcn UI",
     ],
   },
   {
@@ -30,9 +35,15 @@ export const techStack = [
       "Figma",
       "VS Code",
       "Vercel",
-      "Node.js",
-      "Three.js",
-      "Blender",
+      "Docker",
+      "GCP/AWS",
+      "Postman",
+      "Notion",
+      "Trello",
     ],
+  },
+  {
+    category: "DATABASE",
+    items: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
   },
 ];
