@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import LocalTime from "@/components/ui/LocalTime";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      <nav className="nav-glass fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-50 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between rounded-full">
+      <nav className={`nav-glass fixed left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-50 px-4 sm:px-6 flex items-center justify-between rounded-full transition-all duration-500 ${scrolled ? "top-2 py-1.5 sm:py-2 nav-glass--scrolled" : "top-3 sm:top-4 py-2.5 sm:py-3"}`}>
         <MagneticButton
           as="a"
           href="#"

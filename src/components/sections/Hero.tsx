@@ -1,21 +1,48 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import Sticker from "@/components/ui/Sticker";
 import ScrambleText from "@/components/ui/ScrambleText";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import MagneticButton from "@/components/ui/MagneticButton";
 import HeroText from "@/components/ui/HeroText";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface HeroProps {
   isLoaded: boolean;
 }
 
 export default function Hero({ isLoaded }: HeroProps) {
+  const heroRef = useRef<HTMLElement>(null);
+  const topRef = useRef<HTMLDivElement>(null);
+  const middleRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const trigger = {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1.5,
+      };
+
+      gsap.to(topRef.current, { yPercent: -40, ease: "none", scrollTrigger: trigger });
+      gsap.to(middleRef.current, { yPercent: -15, ease: "none", scrollTrigger: trigger });
+      gsap.to(bottomRef.current, { yPercent: -25, ease: "none", scrollTrigger: trigger });
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <header className="relative min-h-screen flex flex-col justify-between pt-32 pb-6 px-4 md:px-12 border-b border-black/5 overflow-hidden">
+    <header ref={heroRef} className="relative min-h-screen flex flex-col justify-between pt-32 pb-6 px-4 md:px-12 border-b border-black/5 overflow-hidden">
       {/* TOP: Large Text (Left) */}
-      <div className="z-10 w-full relative">
+      <div ref={topRef} className="z-10 w-full relative">
         {/* Stickers for Top Text */}
         {isLoaded && (
           <>
@@ -35,7 +62,7 @@ export default function Hero({ isLoaded }: HeroProps) {
       </div>
 
       {/* MIDDLE: Floating Elements (Pills & Deco) */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full z-20 my-8 md:my-0 px-1 md:px-2">
+      <div ref={middleRef} className="flex flex-col md:flex-row justify-between items-start md:items-center w-full z-20 my-8 md:my-0 px-1 md:px-2">
         {/* Left Pill */}
         <RevealOnScroll className="delay-300">
           <div className="border border-black/80 rounded-full px-5 py-1.5 text-xs md:text-sm font-mono uppercase tracking-wide hover:bg-black hover:text-white transition-colors duration-300 cursor-default inline-block">
@@ -59,7 +86,7 @@ export default function Hero({ isLoaded }: HeroProps) {
       </div>
 
       {/* BOTTOM: Text (Right) & Description (Left) */}
-      <div className="flex flex-col md:flex-row items-end justify-between w-full z-10 relative">
+      <div ref={bottomRef} className="flex flex-col md:flex-row items-end justify-between w-full z-10 relative">
         {/* Description & Buttons (Left Side) */}
         <RevealOnScroll className="order-2 md:order-1 max-w-md mb-2 md:mb-4 md:mr-8 delay-700 relative">
           {isLoaded && (

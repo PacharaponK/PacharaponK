@@ -1,13 +1,42 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import ProjectItem from "@/components/ui/ProjectItem";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { projects, workSectionData } from "@/data/work";
 
 export default function Work() {
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const items = listRef.current?.querySelectorAll<HTMLElement>(".project-gsap-item");
+    if (!items?.length) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(items, {
+        opacity: 0,
+        y: 64,
+        stagger: 0.12,
+        duration: 0.85,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: listRef.current,
+          start: "top 82%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }, listRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section id="work" className="py-24 px-6 md:px-12 border-b border-black/5">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
@@ -18,7 +47,9 @@ export default function Work() {
           <AnimatedText animation="words" trigger="scroll" delay={0.1} stagger={0.08}>
             {workSectionData.subtitle}
           </AnimatedText>
-          <span className="text-gray-400 text-2xl align-top font-mono">({String(projects.length).padStart(2, '0')})</span>
+          <span className="text-gray-400 text-2xl align-top font-mono">
+            ({String(projects.length).padStart(2, "0")})
+          </span>
         </h2>
         <AnimatedText
           as="p"
@@ -30,11 +61,11 @@ export default function Work() {
         </AnimatedText>
       </div>
 
-      <div className="flex flex-col">
+      <div ref={listRef} className="flex flex-col">
         {projects.slice(0, 4).map((project, index) => (
-          <RevealOnScroll key={project.number}>
+          <div key={project.number} className="project-gsap-item">
             <ProjectItem {...project} isLast={index === 3} />
-          </RevealOnScroll>
+          </div>
         ))}
       </div>
 
