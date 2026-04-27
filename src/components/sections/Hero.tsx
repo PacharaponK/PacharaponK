@@ -70,7 +70,7 @@ export default function Hero({ isLoaded }: HeroProps) {
             การเชื่อมโยง AI, IoT และ Web Technology
             สร้างโซลูชันที่ตอบโจทย์ ใช้งานได้จริง และปลอดภัย
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-3">
             <MagneticButton
               as="a"
               href="#work"

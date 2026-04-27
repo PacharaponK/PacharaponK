@@ -82,7 +82,7 @@ export default function ProjectDetailPage() {
                   </span>
                 )}
               </div>
-              <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tighter text-primary mb-6">
+              <h1 className="font-heading text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-primary mb-6">
                 {project.title}
               </h1>
               <p className="text-gray-500 text-sm mb-4">{project.description}</p>

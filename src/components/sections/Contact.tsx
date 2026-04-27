@@ -34,7 +34,7 @@ export default function Contact() {
         >
           {"WHAT'S NEXT?"}
         </AnimatedText>
-        <h2 className="font-heading text-5xl md:text-8xl font-bold tracking-tighter max-w-4xl text-primary">
+        <h2 className="font-heading text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter max-w-4xl text-primary">
           <AnimatedText animation="chars" trigger="scroll" delay={0.2} stagger={0.02}>
             {"LET'S WORK"}
           </AnimatedText>
@@ -44,13 +44,13 @@ export default function Contact() {
         </h2>
       </div>
 
-      <RevealOnScroll className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 items-end">
+      <RevealOnScroll className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-12 md:mt-20 items-end">
         <div className="col-span-1 md:col-span-2">
           <button
             onClick={copyEmail}
-            className="hover-trigger group flex items-center gap-4 text-2xl md:text-4xl text-primary hover:text-gray-500 transition-colors text-left w-full"
+            className="hover-trigger group flex items-center gap-4 text-lg sm:text-2xl md:text-4xl text-primary hover:text-gray-500 transition-colors text-left w-full"
           >
-            <span className="border-b border-black/30 pb-2">
+            <span className="border-b border-black/30 pb-2 break-all min-w-0">
               ballxlenver7@gmail.com
             </span>
             <Copy className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity" />

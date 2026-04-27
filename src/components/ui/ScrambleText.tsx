@@ -104,7 +104,7 @@ export default function ScrambleText({
   return (
     <div
       ref={containerRef}
-      className={`block whitespace-nowrap text-[18vw] md:text-[15vw] font-black ${className}`}
+      className={`block whitespace-nowrap text-[13vw] sm:text-[15vw] md:text-[15vw] font-black ${className}`}
       style={{ opacity: 0 }}
     >
       {/* Initial placeholder - will be replaced by scramble animation */}

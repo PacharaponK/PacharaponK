@@ -84,7 +84,7 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
   return (
     <div
       ref={containerRef}
-      className="block overflow-hidden whitespace-nowrap text-[18vw] md:text-[15vw] font-black"
+      className="block overflow-hidden whitespace-nowrap text-[13vw] sm:text-[15vw] md:text-[15vw] font-black"
       style={{ perspective: "1000px", opacity: 0 }}
     >
       {text}

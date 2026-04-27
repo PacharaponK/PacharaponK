@@ -11,7 +11,7 @@ export default function Work() {
   return (
     <section id="work" className="py-24 px-6 md:px-12 border-b border-black/5">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-        <h2 className="font-heading text-4xl md:text-6xl font-bold tracking-tighter text-primary">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-primary">
           <AnimatedText animation="words" trigger="scroll" stagger={0.08}>
             {workSectionData.title}
           </AnimatedText>

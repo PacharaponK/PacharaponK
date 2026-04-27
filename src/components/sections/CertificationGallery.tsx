@@ -104,7 +104,7 @@ export default function CertificationGallery({ onImageClick }: { onImageClick?: 
 
       <div className="flex flex-col md:flex-row justify-between items-end mb-12 relative z-10">
         <div className="mb-6 md:mb-0">
-          <h2 className="font-heading text-4xl md:text-6xl font-bold tracking-tighter text-primary flex items-start gap-2">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-primary flex items-start gap-2">
             <AnimatedText animation="words" trigger="scroll" stagger={0.08}>
               CERTIFICATIONS
             </AnimatedText>
@@ -149,7 +149,7 @@ export default function CertificationGallery({ onImageClick }: { onImageClick?: 
       {/* 3D Slider Container */}
       <div
         ref={sliderRef}
-        className="relative w-full max-w-5xl mx-auto h-[500px] flex items-center justify-center perspective-1000 touch-pan-y"
+        className="relative w-full max-w-5xl mx-auto h-[360px] sm:h-[440px] md:h-[500px] flex items-center justify-center perspective-1000 touch-pan-y"
         onMouseEnter={pauseAutoPlay}
         onMouseLeave={resumeAutoPlay}
         onTouchStart={onTouchStart}
@@ -164,7 +164,7 @@ export default function CertificationGallery({ onImageClick }: { onImageClick?: 
               key={cert.originalIndex} // Stable key using originalIndex (duplicates now handled in hook)
               onClick={() => isActive && onImageClick?.(cert.image)}
               style={style}
-              className="absolute w-[300px] md:w-[350px] aspect-[4/5] transition-all duration-500 ease-out cursor-pointer will-change-transform"
+              className="absolute w-[240px] sm:w-[300px] md:w-[350px] aspect-[4/5] transition-all duration-500 ease-out cursor-pointer will-change-transform"
             >
               <CertificationCard
                 cert={cert}

@@ -51,7 +51,7 @@ export default function About({ isLoaded }: AboutProps) {
 
                   {/* Name */}
                   <div className="flex flex-col">
-                    <span className="font-heading font-bold text-primary text-3xl md:text-5xl lg:text-6xl tracking-tight">
+                    <span className="font-heading font-bold text-primary text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight">
                       Pacharapon Ketkaew
                     </span>
                     <span className="font-mono text-sm md:text-base text-gray-600 mt-1">
@@ -61,7 +61,7 @@ export default function About({ isLoaded }: AboutProps) {
                 </div>
 
                 {/* Introduction Text */}
-                <div className="font-thai text-2xl md:text-3xl lg:text-4xl leading-[1.4] font-light text-gray-800">
+                <div className="font-thai text-lg sm:text-xl md:text-3xl lg:text-4xl leading-[1.4] font-light text-gray-800">
                   <p>
                     ผมเป็น Software Engineer ที่ชื่นชอบในการพัฒนาเว็บทั้ง <span className="font-serif italic text-black bg-blue-100 px-2">Frontend</span> และ <span className="font-serif italic text-black bg-purple-100 px-2">Backend</span> พร้อมทำตั้งแต่เขียนโค้ดไปจนถึง <span className="font-serif italic text-black bg-green-100 px-2">Deploy</span> และนำความรู้ต่างๆไม่ว่าจะเป็น <span className="font-serif italic text-black bg-yellow-100 px-2">AI</span> หรือ <span className="font-serif italic text-black bg-orange-100 px-2">IoT</span> มาปรับใช้
                   </p>
@@ -86,7 +86,7 @@ export default function About({ isLoaded }: AboutProps) {
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll className="mt-20 pt-8 border-t border-black/5 flex items-center justify-between">
+          <RevealOnScroll className="mt-20 pt-8 border-t border-black/5 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -98,7 +98,7 @@ export default function About({ isLoaded }: AboutProps) {
             </div>
             <MagneticButton
               as="a"
-              href="/resume.pdf"
+              href="/files/Resume.pdf"
               target="_blank"
               className="text-xs font-mono underline decoration-black/30 hover:decoration-black transition-all"
             >

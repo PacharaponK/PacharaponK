@@ -24,7 +24,7 @@ export default function ScrollingTextCarousel({
           <div key={index} className="w-full overflow-hidden py-1">
             <div
               ref={(el) => { rowsRef.current[index] = el; }}
-              className={`text-3xl md:text-5xl lg:text-6xl font-serif font-bold italic tracking-tight whitespace-nowrap will-change-transform ${row.style}`}
+              className={`text-xl sm:text-3xl md:text-5xl lg:text-6xl font-serif font-bold italic tracking-tight whitespace-nowrap will-change-transform ${row.style}`}
             >
               <span className="px-4">{row.text}</span>
             </div>

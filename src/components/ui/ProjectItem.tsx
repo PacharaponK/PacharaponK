@@ -49,7 +49,7 @@ export default function ProjectItem({
             <span className="font-mono text-[#2563EB] text-xs mb-2 block tracking-wider">
               {number} / {category}
             </span>
-            <h3 className="font-heading text-3xl md:text-5xl font-bold text-primary group-hover:translate-x-4 transition-transform duration-300">
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-5xl font-bold text-primary group-hover:translate-x-4 transition-transform duration-300">
               {title}
             </h3>
           </div>
