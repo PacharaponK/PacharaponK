@@ -72,7 +72,7 @@ export default function Work() {
       <RevealOnScroll className="mt-12 text-center">
         <Link
           href="/projects"
-          className="hover-trigger inline-block text-sm font-mono border-b border-black/30 pb-1 text-primary hover:text-[#2563EB] hover:border-[#2563EB] transition-colors"
+          className="hover-trigger inline-block text-sm font-mono border-b border-black/30 pb-1 text-primary hover:text-black/60 hover:border-black/60 transition-colors"
         >
           {workSectionData.viewAllText}
         </Link>

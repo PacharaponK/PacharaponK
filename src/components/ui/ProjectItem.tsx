@@ -39,9 +39,8 @@ export default function ProjectItem({
   return (
     <Link href={`/projects/${id}`} className="block group hover-trigger">
       <div
-        className={`relative overflow-hidden border-t ${
-          isLast ? "border-b" : ""
-        } border-black/10 transition-colors duration-300 hover:bg-black/[0.025]`}
+        className={`relative overflow-hidden border-t ${isLast ? "border-b" : ""
+          } border-black/10 transition-colors duration-300 hover:bg-black/[0.025]`}
       >
         {/* Left accent bar */}
         <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-primary origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
@@ -74,7 +73,7 @@ export default function ProjectItem({
             </div>
 
             {/* Title */}
-            <h3 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-none text-primary group-hover:text-accent group-hover:translate-x-3 transition-all duration-400 ease-out">
+            <h3 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-none text-primary group-hover:text-black/60 group-hover:translate-x-3 transition-all duration-400 ease-out">
               {title}
             </h3>
 
@@ -84,7 +83,7 @@ export default function ProjectItem({
                 {techList.map((t) => (
                   <span
                     key={t}
-                    className="px-2 py-0.5 rounded text-[10px] font-mono text-gray-500 border border-black/10 group-hover:border-accent/25 group-hover:text-accent/70 transition-all duration-300"
+                    className="px-2 py-0.5 rounded text-[10px] font-mono text-gray-500 border border-black/10 group-hover:border-black/30 group-hover:text-black/60 transition-all duration-300"
                   >
                     {t}
                   </span>
@@ -99,18 +98,17 @@ export default function ProjectItem({
             <div className="flex flex-col items-end justify-between self-stretch py-1 gap-4">
               {status && (
                 <span
-                  className={`px-2 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider whitespace-nowrap ${
-                    status === "Production"
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider whitespace-nowrap ${status === "Production"
                       ? "bg-green-100 text-green-700"
                       : status === "DEVELOPMENT"
-                      ? "bg-yellow-100 text-yellow-700"
-                      : "bg-gray-100 text-gray-500"
-                  }`}
+                        ? "bg-yellow-100 text-yellow-700"
+                        : "bg-gray-100 text-gray-500"
+                    }`}
                 >
                   {status}
                 </span>
               )}
-              <ArrowUpRight className="w-5 h-5 text-black/25 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 mt-auto" />
+              <ArrowUpRight className="w-5 h-5 text-black/25 group-hover:text-black/60 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 mt-auto" />
             </div>
           </div>
         </div>
