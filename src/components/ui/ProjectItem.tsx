@@ -10,7 +10,6 @@ interface ProjectItemProps {
   title: string;
   description: string;
   tech: string;
-  imageUrl: string;
   year?: string;
   status?: string;
   isLast?: boolean;
@@ -28,7 +27,6 @@ export default function ProjectItem({
   title,
   description,
   tech,
-  imageUrl,
   year,
   status,
   isLast = false,

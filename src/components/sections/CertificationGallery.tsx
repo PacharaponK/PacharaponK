@@ -10,10 +10,9 @@ import { categories, certifications } from "@/data/certifications";
 import { useCertificationGallery } from "@/hooks/useCertificationGallery";
 
 // Memoized Card Component for Performance
-const CertificationCard = memo(({ cert, isActive, onClick }: {
+const CertificationCard = memo(({ cert, isActive }: {
   cert: typeof certifications[0],
   isActive: boolean,
-  onClick: () => void
 }) => {
   return (
     <div className="w-full h-full rounded-2xl overflow-hidden bg-white border border-black/5 shadow-2xl relative group">
@@ -169,7 +168,6 @@ export default function CertificationGallery({ onImageClick }: { onImageClick?: 
               <CertificationCard
                 cert={cert}
                 isActive={isActive}
-                onClick={() => isActive && onImageClick?.(cert.image)}
               />
             </div>
           );

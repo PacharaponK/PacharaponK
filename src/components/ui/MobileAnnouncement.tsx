@@ -15,7 +15,9 @@ export default function MobileAnnouncement() {
     if (sessionStorage.getItem("pc-hint-shown")) return
 
     sessionStorage.setItem("pc-hint-shown", "1")
-    setVisible(true)
+    
+    // Defer to avoid cascading render warning
+    const showId = requestAnimationFrame(() => setVisible(true))
 
     const start = performance.now()
 
@@ -30,6 +32,7 @@ export default function MobileAnnouncement() {
     return () => {
       clearTimeout(t)
       cancelAnimationFrame(rafId)
+      cancelAnimationFrame(showId)
     }
   }, [])
 

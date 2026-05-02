@@ -14,7 +14,7 @@ export function WebGLShader({ className = "fixed top-0 left-0 w-full h-full bloc
     camera: THREE.OrthographicCamera | null
     renderer: THREE.WebGLRenderer | null
     mesh: THREE.Mesh | null
-    uniforms: any
+    uniforms: { [key: string]: THREE.IUniform } | null
     animationId: number | null
   }>({
     scene: null,
