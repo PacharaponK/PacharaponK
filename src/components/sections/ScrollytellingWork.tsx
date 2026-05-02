@@ -163,7 +163,7 @@ function StickyImage({
                     priority
                   />
                 </div>
-                
+
                 {/* Year badge */}
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
@@ -176,7 +176,7 @@ function StickyImage({
                     {active.year ?? "—"}
                   </div>
                 </motion.div>
-                
+
                 {/* Category badge */}
                 <motion.div
                   initial={{ y: -20, opacity: 0 }}
@@ -188,11 +188,11 @@ function StickyImage({
                     {active.category}
                   </span>
                 </motion.div>
-                
+
               </motion.div>
             </AnimatePresence>
           </div>
-          
+
           {/* Progress indicator below image */}
           <div className="mt-8 flex items-center justify-between px-2">
             <div className="flex gap-2">
@@ -200,9 +200,8 @@ function StickyImage({
                 <button
                   key={i}
                   onClick={() => onDotClick(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === activeProject ? "w-8 bg-white" : "w-2 bg-white/20 hover:bg-white/40"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === activeProject ? "w-8 bg-white" : "w-2 bg-white/20 hover:bg-white/40"
+                    }`}
                   aria-label={`Go to project ${i + 1}`}
                 />
               ))}
@@ -298,14 +297,14 @@ export default function ScrollytellingWork() {
 
     const navTrigger = navEl
       ? ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: "top 80px",
-          end: "bottom top",
-          onEnter: hideNav,
-          onLeave: showNav,
-          onEnterBack: hideNav,
-          onLeaveBack: showNav,
-        })
+        trigger: sectionRef.current,
+        start: "top 80px",
+        end: "bottom top",
+        onEnter: hideNav,
+        onLeave: showNav,
+        onEnterBack: hideNav,
+        onLeaveBack: showNav,
+      })
       : null;
 
     const triggers = itemRefs.current.map((el, index) => {
@@ -375,13 +374,6 @@ export default function ScrollytellingWork() {
         <StickyImage
           activeProject={activeProject}
           variant="desktop"
-          onDotClick={scrollToProject}
-        />
-
-        {/* Mobile sticky image (top) */}
-        <StickyImage
-          activeProject={activeProject}
-          variant="mobile"
           onDotClick={scrollToProject}
         />
 
