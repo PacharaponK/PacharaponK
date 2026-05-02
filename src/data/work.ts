@@ -117,15 +117,15 @@ export const projects: Project[] = [
     category: "PUPA TEAM",
     title: "Archive BIA",
     description: "WEBSITE, AI/ML",
-    tech: "", //TODO
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=BiteScore",
-    fullDescription: "=", //TODO
-    features: [], //TODO
+    tech: "Next.js, FastAPI, Python",
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Archive+BIA",
+    fullDescription: "ระบบคลังเอกสารอัจฉริยะที่ใช้ AI ในการช่วยจัดหมวดหมู่และค้นหาข้อมูลประสิทธิภาพสูง",
+    features: ["AI Document Classification", "Advanced Search", "Metadata Management"],
     year: "2025",
     role: "Developer",
     status: "DEVELOPMENT",
     links: {
-      github: "https://github.com/PacharaponK/BiteScore",
+      github: "https://github.com/PacharaponK/",
     },
   },
   {
@@ -134,10 +134,10 @@ export const projects: Project[] = [
     category: "CoE Project",
     title: "BiteScore",
     description: "WEBSITE, AI/ML",
-    tech: "", //TODO
+    tech: "React, TypeScript, FastAPI, TensorFlow",
     imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=BiteScore",
-    fullDescription: "=", //TODO
-    features: [], //TODO
+    fullDescription: "แอปพลิเคชันวิเคราะห์อาหารที่รวม Computer Vision สำหรับจำแนกประเภทอาหารและ NLP สำหรับวิเคราะห์ความรู้สึกจากรีวิว",
+    features: ["Food Image Classification", "Sentiment Analysis", "Analysis History Dashboard"],
     year: "2025",
     role: "Developer",
     status: "Closed",
@@ -151,10 +151,10 @@ export const projects: Project[] = [
     category: "PUPA TEAM",
     title: "PSU FormHub",
     description: "WEBSITE",
-    tech: "", //TODO
+    tech: "React, TypeScript, Node.js",
     imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=PSUFormHub",
-    fullDescription: "=", //TODO
-    features: [], //TODO
+    fullDescription: "ศูนย์รวมแบบฟอร์มออนไลน์สำหรับนักศึกษาและบุคลากร มหาวิทยาลัยสงขลานครินทร์ เพื่อความสะดวกในการจัดการเอกสาร",
+    features: ["Form Creation Tool", "Centralized Dashboard", "Digital Submission"],
     year: "2024",
     role: "Developer",
     status: "Closed",
@@ -168,10 +168,10 @@ export const projects: Project[] = [
     category: "PUPA TEAM",
     title: "Ivory",
     description: "WEBSITE",
-    tech: "", //TODO
+    tech: "Next.js, Tailwind, Framer Motion",
     imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Ivory",
-    fullDescription: "=", //TODO
-    features: [], //TODO
+    fullDescription: "โปรเจกต์พัฒนาหน้าเว็บอินเตอร์เฟซที่มีความสวยงามและลื่นไหล เน้นประสบการณ์ผู้ใช้ที่ยอดเยี่ยม",
+    features: ["Smooth Animations", "Responsive Design", "Interactive UI"],
     year: "2025",
     role: "Developer",
     status: "Closed",
@@ -182,10 +182,10 @@ export const projects: Project[] = [
     category: "CoE Project",
     title: "HighLearnHub",
     description: "WEBSITE",
-    tech: "", //TODO
+    tech: "JavaScript, Node.js, Express",
     imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=HighLearnHub",
-    fullDescription: "=", //TODO
-    features: [], //TODO
+    fullDescription: "แพลตฟอร์มเพื่อการเรียนรู้ออนไลน์ที่รวบรวมแหล่งข้อมูลและสื่อการสอนสำหรับการศึกษา",
+    features: ["Learning Resource Management", "Student Collaboration", "Course Tracking"],
     year: "2025",
     role: "Developer",
     status: "Closed",
