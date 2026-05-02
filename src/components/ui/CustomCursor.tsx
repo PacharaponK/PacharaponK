@@ -6,8 +6,17 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const outlineRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
+    const workSection = document.querySelector<HTMLElement>("#work");
+
+    const onWorkEnter = () => setIsLight(true);
+    const onWorkLeave = () => setIsLight(false);
+
+    workSection?.addEventListener("mouseenter", onWorkEnter);
+    workSection?.addEventListener("mouseleave", onWorkLeave);
+
     const handleMouseMove = (e: MouseEvent) => {
       const posX = e.clientX;
       const posY = e.clientY;
@@ -62,6 +71,8 @@ export default function CustomCursor() {
     document.addEventListener("mouseleave", handleMouseLeave, true);
 
     return () => {
+      workSection?.removeEventListener("mouseenter", onWorkEnter);
+      workSection?.removeEventListener("mouseleave", onWorkLeave);
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseenter", handleMouseEnter, true);
       document.removeEventListener("mouseleave", handleMouseLeave, true);
@@ -70,10 +81,10 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot hidden md:block"></div>
+      <div ref={dotRef} className={`cursor-dot hidden md:block ${isLight ? "cursor-dot--light" : ""}`}></div>
       <div
         ref={outlineRef}
-        className={`cursor-outline hidden md:block ${isHovered ? "hovered" : ""}`}
+        className={`cursor-outline hidden md:block ${isHovered ? "hovered" : ""} ${isLight ? "cursor-outline--light" : ""}`}
       ></div>
     </>
   );

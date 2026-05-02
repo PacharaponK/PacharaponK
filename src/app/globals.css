@@ -338,6 +338,18 @@ a, button, [role="button"], input, select, textarea, label, [tabindex] {
     backdrop-filter: blur(2px);
   }
 
+  .cursor-dot--light {
+    background-color: white;
+  }
+
+  .cursor-outline--light {
+    border-color: rgb(255 255 255 / 0.5);
+  }
+
+  .cursor-outline--light.hovered {
+    background-color: rgb(255 255 255 / 0.08);
+  }
+
   /* Noise Texture Overlay */
   .noise {
     position: fixed;
