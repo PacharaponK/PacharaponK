@@ -55,9 +55,9 @@ export function WebGLShader({ className = "fixed top-0 left-0 w-full h-full bloc
         float gx = p.x;
         float bx = p.x * (1.0 - d);
 
-        float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);
-        float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
-        float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
+        float r = 0.06 / abs(p.y + sin((rx + time) * xScale) * yScale);
+        float g = 0.06 / abs(p.y + sin((gx + time) * xScale) * yScale);
+        float b = 0.06 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
         gl_FragColor = vec4(r, g, b, 1.0);
       }
@@ -81,11 +81,11 @@ export function WebGLShader({ className = "fixed top-0 left-0 w-full h-full bloc
 
       const position = [
         -1.0, -1.0, 0.0,
-         1.0, -1.0, 0.0,
-        -1.0,  1.0, 0.0,
-         1.0, -1.0, 0.0,
-        -1.0,  1.0, 0.0,
-         1.0,  1.0, 0.0,
+        1.0, -1.0, 0.0,
+        -1.0, 1.0, 0.0,
+        1.0, -1.0, 0.0,
+        -1.0, 1.0, 0.0,
+        1.0, 1.0, 0.0,
       ]
 
       const positions = new THREE.BufferAttribute(new Float32Array(position), 3)
