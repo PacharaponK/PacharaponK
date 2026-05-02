@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   description: "Full Stack Developer - พัฒนาระบบดิจิทัลด้วย Software Engineering และ Full-Stack Development และการเชื่อมโยง AI, IoT และ Web Technology สร้างโซลูชันที่ตอบโจทย์และใช้งานได้จริง",
 };
 
+import SmoothScroll from "@/components/layout/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,7 +52,9 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} ${ibmPlexSansThai.variable} ${firaCode.variable} antialiased selection:bg-black selection:text-white`}
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

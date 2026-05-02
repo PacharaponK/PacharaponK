@@ -15,100 +15,102 @@ export default function About({ isLoaded }: AboutProps) {
     <section id="about" className="border-b border-black/5 bg-white relative">
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen">
 
-        {/* Left Column: About Me */}
-        <div className="lg:col-span-7 p-8 md:p-16 lg:p-20 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-between relative overflow-hidden">
+        {/* Left Column: About Me (Sticky) */}
+        <div className="lg:col-span-7 p-8 md:p-16 lg:p-20 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-between relative overflow-hidden lg:h-screen lg:sticky lg:top-0">
           {isLoaded && (
             <Sticker type="sparkle" className="w-12 h-12 top-10 right-10 opacity-20" delay={0.5} />
           )}
 
-          <RevealOnScroll>
-            <h3 className="text-sm font-mono text-gray-400 mb-12 flex items-center gap-3 uppercase tracking-widest">
-              <span className="w-2 h-2 rounded-full bg-primary"></span>
-              ( About Me )
-            </h3>
+          <div className="flex flex-col h-full justify-between py-12 lg:py-0">
+            <RevealOnScroll>
+              <h3 className="text-sm font-mono text-gray-400 mb-12 flex items-center gap-3 uppercase tracking-widest">
+                <span className="w-2 h-2 rounded-full bg-primary"></span>
+                ( About Me )
+              </h3>
 
-            <div className="space-y-12 relative z-10">
-              {/* Profile Section with Image */}
-              <div className="flex flex-col gap-6">
-                {/* Profile Image + Name Row */}
-                <div className="flex items-center gap-6">
-                  {/* Profile Image */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-28 h-28 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-black/5 shadow-lg bg-gray-100 relative">
-                      <Image
-                        src="/image/profile.png"
-                        alt="Pacharapon Ketkaew"
-                        fill
-                        className="object-cover"
-                        priority
-                      />
+              <div className="space-y-12 relative z-10">
+                {/* Profile Section with Image */}
+                <div className="flex flex-col gap-6">
+                  {/* Profile Image + Name Row */}
+                  <div className="flex items-center gap-6">
+                    {/* Profile Image */}
+                    <div className="relative flex-shrink-0">
+                      <div className="w-28 h-28 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-black/5 shadow-lg bg-gray-100 relative">
+                        <Image
+                          src="/image/profile.png"
+                          alt="Pacharapon Ketkaew"
+                          fill
+                          className="object-cover"
+                          priority
+                        />
+                      </div>
+                      {/* Decorative element */}
+                      <div className="absolute -bottom-1 -right-1 w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                        👋
+                      </div>
                     </div>
-                    {/* Decorative element */}
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
-                      👋
+
+                    {/* Name */}
+                    <div className="flex flex-col">
+                      <span className="font-heading font-bold text-primary text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight">
+                        Pacharapon Ketkaew
+                      </span>
+                      <span className="font-mono text-sm md:text-base text-gray-600 mt-1">
+                        aka &ldquo;Ball&rdquo;
+                      </span>
                     </div>
                   </div>
 
-                  {/* Name */}
-                  <div className="flex flex-col">
-                    <span className="font-heading font-bold text-primary text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight">
-                      Pacharapon Ketkaew
-                    </span>
-                    <span className="font-mono text-sm md:text-base text-gray-600 mt-1">
-                      aka &ldquo;Ball&rdquo;
-                    </span>
+                  {/* Introduction Text */}
+                  <div className="font-thai text-lg sm:text-xl md:text-3xl lg:text-4xl leading-[1.4] font-light text-gray-800">
+                    <p>
+                      ผมเป็น Software Engineer ที่ชื่นชอบในการพัฒนาเว็บทั้ง <span className="font-serif italic text-black bg-blue-100 px-2">Frontend</span> และ <span className="font-serif italic text-black bg-purple-100 px-2">Backend</span> พร้อมทำตั้งแต่เขียนโค้ดไปจนถึง <span className="font-serif italic text-black bg-green-100 px-2">Deploy</span> และนำความรู้ต่างๆไม่ว่าจะเป็น <span className="font-serif italic text-black bg-yellow-100 px-2">AI</span> หรือ <span className="font-serif italic text-black bg-orange-100 px-2">IoT</span> มาปรับใช้
+                    </p>
                   </div>
                 </div>
 
-                {/* Introduction Text */}
-                <div className="font-thai text-lg sm:text-xl md:text-3xl lg:text-4xl leading-[1.4] font-light text-gray-800">
-                  <p>
-                    ผมเป็น Software Engineer ที่ชื่นชอบในการพัฒนาเว็บทั้ง <span className="font-serif italic text-black bg-blue-100 px-2">Frontend</span> และ <span className="font-serif italic text-black bg-purple-100 px-2">Backend</span> พร้อมทำตั้งแต่เขียนโค้ดไปจนถึง <span className="font-serif italic text-black bg-green-100 px-2">Deploy</span> และนำความรู้ต่างๆไม่ว่าจะเป็น <span className="font-serif italic text-black bg-yellow-100 px-2">AI</span> หรือ <span className="font-serif italic text-black bg-orange-100 px-2">IoT</span> มาปรับใช้
-                  </p>
+                <div className="pt-12 border-t border-black/5">
+                  <h4 className="font-mono text-xs text-gray-400 mb-8 uppercase tracking-widest">What I Do</h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
+                    {services.map((service, i) => (
+                      <li key={i} className="flex items-center gap-4 group cursor-default">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full border border-black/10 text-[10px] font-mono text-gray-400 group-hover:border-black group-hover:bg-black group-hover:text-white transition-all duration-300">
+                          {i + 1}
+                        </span>
+                        <span className="font-heading text-lg md:text-xl text-gray-600 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">
+                          {service}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
+            </RevealOnScroll>
 
-              <div className="pt-12 border-t border-black/5">
-                <h4 className="font-mono text-xs text-gray-400 mb-8 uppercase tracking-widest">What I Do</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
-                  {services.map((service, i) => (
-                    <li key={i} className="flex items-center gap-4 group cursor-default">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-full border border-black/10 text-[10px] font-mono text-gray-400 group-hover:border-black group-hover:bg-black group-hover:text-white transition-all duration-300">
-                        {i + 1}
-                      </span>
-                      <span className="font-heading text-lg md:text-xl text-gray-600 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">
-                        {service}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+            <RevealOnScroll className="mt-auto pt-8 border-t border-black/5 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </div>
+                <span className="font-mono text-xs md:text-sm text-gray-500 uppercase tracking-wider">
+                  Available for new opportunities
+                </span>
               </div>
-            </div>
-          </RevealOnScroll>
-
-          <RevealOnScroll className="mt-20 pt-8 border-t border-black/5 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </div>
-              <span className="font-mono text-xs md:text-sm text-gray-500 uppercase tracking-wider">
-                Available for new opportunities
-              </span>
-            </div>
-            <MagneticButton
-              as="a"
-              href="/files/Resume.pdf"
-              target="_blank"
-              className="text-xs font-mono underline decoration-black/30 hover:decoration-black transition-all"
-            >
-              DOWNLOAD RESUME
-            </MagneticButton>
-          </RevealOnScroll>
+              <MagneticButton
+                as="a"
+                href="/files/Resume.pdf"
+                target="_blank"
+                className="text-xs font-mono underline decoration-black/30 hover:decoration-black transition-all"
+              >
+                DOWNLOAD RESUME
+              </MagneticButton>
+            </RevealOnScroll>
+          </div>
         </div>
 
-        {/* Right Column: Tech Stack */}
-        <div className="lg:col-span-5 bg-[#FAFAFA] p-8 md:p-16 lg:p-20 flex flex-col relative">
+        {/* Right Column: Tech Stack (Scrolling) */}
+        <div className="lg:col-span-5 bg-[#FAFAFA] p-8 md:p-16 lg:p-20 flex flex-col relative min-h-screen">
           {/* Decorative Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 

@@ -26,8 +26,7 @@ export const projects: Project[] = [
     title: "Barcamp Songkhla",
     description: "WEBSITE",
     tech: "React, Express.js, Tailwind",
-    imageUrl:
-      "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Barcamp+Songkhla",
+    imageUrl: "/image/barcamp-songklah/1.png",
     fullDescription:
       "เว็บไซต์สำหรับงาน Barcamp Songkhla ที่รวบรวมข้อมูลและการลงทะเบียนสำหรับผู้เข้าร่วมงาน",
     features: [
