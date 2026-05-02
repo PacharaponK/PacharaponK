@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import AnimatedText from "@/components/ui/AnimatedText";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
+import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { projects, workSectionData, type Project } from "@/data/work";
 
 const DISPLAY_COUNT = 5;
@@ -28,10 +29,10 @@ function ProjectCard({
 
   const statusColor =
     project.status === "Production"
-      ? "bg-green-50 text-green-600 border-green-100"
+      ? "bg-green-500/10 text-green-400 border-green-500/20"
       : project.status === "DEVELOPMENT"
-        ? "bg-amber-50 text-amber-600 border-amber-100"
-        : "bg-gray-50 text-gray-400 border-gray-100";
+        ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+        : "bg-white/5 text-white/30 border-white/10";
 
   return (
     <div
@@ -42,7 +43,7 @@ function ProjectCard({
       className="scrolly-item flex flex-col justify-center
                  px-8 md:px-14 lg:px-20
                  py-16 lg:py-0 lg:min-h-screen
-                 border-b lg:border-b-0 border-black/5"
+                 border-b lg:border-b-0 border-white/5"
     >
       <motion.div
         initial={{ opacity: 0, y: 28 }}
@@ -52,20 +53,20 @@ function ProjectCard({
       >
         {/* Category + number */}
         <div className="flex items-center gap-3">
-          <span className="font-mono text-sm text-gray-400">{project.number}</span>
-          <span className="h-px w-8 bg-gray-200 flex-shrink-0" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-primary font-bold">
+          <span className="font-mono text-sm text-white/40">{project.number}</span>
+          <span className="h-px w-8 bg-white/20 flex-shrink-0" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-white/60 font-bold">
             {project.category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary leading-[0.95]">
+        <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white leading-[0.95]">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="font-thai text-base md:text-lg text-gray-600 leading-relaxed">
+        <p className="font-thai text-base md:text-lg text-white/70 leading-relaxed">
           {project.fullDescription || project.description}
         </p>
 
@@ -75,7 +76,7 @@ function ProjectCard({
             {project.tech.split(", ").map((t) => (
               <span
                 key={t}
-                className="px-3 py-1 bg-gray-50 border border-black/5 rounded-lg text-[11px] font-mono text-gray-500"
+                className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-[11px] font-mono text-white/50"
               >
                 {t}
               </span>
@@ -86,12 +87,12 @@ function ProjectCard({
         {/* Meta row */}
         <div className="flex items-center gap-3 flex-wrap">
           {project.year && (
-            <span className="font-mono text-xs text-gray-400">{project.year}</span>
+            <span className="font-mono text-xs text-white/40">{project.year}</span>
           )}
           {project.role && (
             <>
-              <span className="h-3 w-px bg-gray-200" />
-              <span className="font-mono text-xs text-gray-400">{project.role}</span>
+              <span className="h-3 w-px bg-white/20" />
+              <span className="font-mono text-xs text-white/40">{project.role}</span>
             </>
           )}
           {project.status && (
@@ -109,10 +110,10 @@ function ProjectCard({
             href={`/projects/${project.id}`}
             className="inline-flex items-center gap-3 group"
           >
-            <div className="w-11 h-11 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-black group-hover:border-black group-hover:text-white transition-all duration-300">
+            <div className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70 group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
               <ArrowUpRight size={18} />
             </div>
-            <span className="font-mono text-xs uppercase tracking-widest border-b border-black/10 pb-px group-hover:border-black transition-colors">
+            <span className="font-mono text-xs uppercase tracking-widest text-white/60 border-b border-white/20 pb-px group-hover:border-white group-hover:text-white transition-colors">
               View Project Details
             </span>
           </Link>
@@ -138,44 +139,77 @@ function StickyImage({
 
   if (variant === "desktop") {
     return (
-      <div className="hidden lg:block w-1/2 h-screen sticky top-0 overflow-hidden bg-gray-50">
-        {/* Main image */}
-        <div className="absolute inset-0 flex items-center justify-center p-10 xl:p-14">
-          <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5 bg-white flex items-center justify-center">
+      <div className="hidden lg:flex w-1/2 h-screen sticky top-0 items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_70%)] pointer-events-none" />
+
+        {/* Main image container */}
+        <div className="relative w-[85%] max-w-2xl z-10">
+          <div className="relative aspect-[4/3] xl:aspect-[16/11] w-full rounded-[2rem] overflow-hidden bg-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.3)] border border-white/10 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject}
-                initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
+                initial={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 p-8 flex items-center justify-center bg-gray-50/50"
+                exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/10 flex items-center justify-center p-8 lg:p-12 group"
               >
                 <div className="relative w-full h-full">
                   <Image
                     src={active.imageUrl}
                     alt={active.title}
                     fill
-                    className="object-contain drop-shadow-2xl"
+                    className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.02]"
                     priority
                   />
                 </div>
-                {/* Subtle vignette instead of heavy dark gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none rounded-[2rem]" />
-
+                
                 {/* Year badge */}
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
                   className="absolute bottom-6 left-6"
                 >
-                  <span className="px-4 py-1.5 bg-black/85 backdrop-blur-md rounded-full text-xs font-mono text-white/95 shadow-lg border border-white/10">
+                  <div className="px-5 py-2 bg-black/60 backdrop-blur-md rounded-full text-xs font-mono text-white/80 shadow-sm border border-white/10 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" />
                     {active.year ?? "—"}
+                  </div>
+                </motion.div>
+                
+                {/* Category badge */}
+                <motion.div
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="absolute top-6 right-6"
+                >
+                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-mono text-white/60 uppercase tracking-widest border border-white/10">
+                    {active.category}
                   </span>
                 </motion.div>
+                
               </motion.div>
             </AnimatePresence>
+          </div>
+          
+          {/* Progress indicator below image */}
+          <div className="mt-8 flex items-center justify-between px-2">
+            <div className="flex gap-2">
+              {displayProjects.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => onDotClick(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === activeProject ? "w-8 bg-white" : "w-2 bg-white/20 hover:bg-white/40"
+                  }`}
+                  aria-label={`Go to project ${i + 1}`}
+                />
+              ))}
+            </div>
+            <span className="font-mono text-xs text-white/40">
+              {String(activeProject + 1).padStart(2, "0")} / {String(DISPLAY_COUNT).padStart(2, "0")}
+            </span>
           </div>
         </div>
       </div>
@@ -257,6 +291,23 @@ export default function ScrollytellingWork() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    const navEl = document.querySelector<HTMLElement>(".nav-glass");
+
+    const hideNav = () => gsap.to(navEl, { y: "-150%", xPercent: -50, duration: 0.4, ease: "power2.inOut" });
+    const showNav = () => gsap.to(navEl, { y: "0%", xPercent: -50, duration: 0.4, ease: "power2.inOut" });
+
+    const navTrigger = navEl
+      ? ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top 80px",
+          end: "bottom top",
+          onEnter: hideNav,
+          onLeave: showNav,
+          onEnterBack: hideNav,
+          onLeaveBack: showNav,
+        })
+      : null;
+
     const triggers = itemRefs.current.map((el, index) => {
       if (!el) return null;
       return ScrollTrigger.create({
@@ -269,6 +320,8 @@ export default function ScrollytellingWork() {
     });
 
     return () => {
+      navTrigger?.kill();
+      if (navEl) gsap.set(navEl, { clearProps: "transform" });
       triggers.forEach((t) => t?.kill());
     };
   }, []);
@@ -282,20 +335,26 @@ export default function ScrollytellingWork() {
   return (
     <section
       id="work"
-      className="relative border-b border-black/5 bg-white"
+      className="relative border-b border-white/10"
       ref={sectionRef}
     >
+      {/* ── WebGL shader background — sticky so it fills the viewport as you scroll ── */}
+      <div className="sticky top-0 h-0 pointer-events-none">
+        <WebGLShader className="absolute top-0 left-0 w-full h-screen block" />
+        <div className="absolute top-0 left-0 w-full h-screen bg-black/25 pointer-events-none" />
+      </div>
+
       {/* ── Section header ── */}
-      <div className="pt-24 px-6 md:px-12 mb-12 lg:mb-16">
+      <div className="relative z-10 pt-24 px-6 md:px-12 mb-6 lg:mb-8">
         <div className="flex flex-col md:flex-row justify-between items-end">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-primary">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-white">
             <AnimatedText animation="words" trigger="scroll" stagger={0.08}>
               {workSectionData.title}
             </AnimatedText>
             <AnimatedText animation="words" trigger="scroll" delay={0.1} stagger={0.08}>
               {workSectionData.subtitle}
             </AnimatedText>
-            <span className="text-gray-400 text-2xl align-top font-mono ml-4">
+            <span className="text-white/40 text-2xl align-top font-mono ml-4">
               ({String(projects.length).padStart(2, "0")})
             </span>
           </h2>
@@ -303,7 +362,7 @@ export default function ScrollytellingWork() {
             as="p"
             animation="words"
             trigger="scroll"
-            className="font-thai text-gray-500 mt-4 md:mt-0 max-w-xs text-right text-xs"
+            className="font-thai text-white/50 mt-4 md:mt-0 max-w-xs text-right text-xs"
           >
             {workSectionData.description}
           </AnimatedText>
@@ -311,7 +370,7 @@ export default function ScrollytellingWork() {
       </div>
 
       {/* ── Scrollytelling body ── */}
-      <div className="relative flex flex-col lg:flex-row">
+      <div className="relative z-10 flex flex-col lg:flex-row">
         {/* Desktop sticky image (left) */}
         <StickyImage
           activeProject={activeProject}
@@ -341,11 +400,11 @@ export default function ScrollytellingWork() {
       </div>
 
       {/* ── Footer link ── */}
-      <div className="py-24 text-center">
+      <div className="relative z-10 py-24 text-center">
         <RevealOnScroll>
           <Link
             href="/projects"
-            className="hover-trigger inline-block text-sm font-mono border-b border-black/30 pb-1 text-primary hover:text-black/60 hover:border-black/60 transition-colors"
+            className="hover-trigger inline-block text-sm font-mono border-b border-white/30 pb-1 text-white/70 hover:text-white hover:border-white transition-colors"
           >
             {workSectionData.viewAllText}
           </Link>
