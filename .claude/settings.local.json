@@ -11,7 +11,12 @@
       "Bash(Get-ChildItem -Path \"D:\\\\PacharaponK\" -Force)",
       "Bash(Select-Object Name, PSIsContainer)",
       "Bash(npm install *)",
-      "Bash(git restore *)"
+      "Bash(git restore *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\PacharaponK\" -Recurse -Directory)",
+      "Bash(Select-Object -First 30 FullName)",
+      "Bash(Remove-Item -Recurse -Force 'D:\\\\PacharaponK\\\\.next\\\\cache\\\\images' -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Cache cleared\")",
+      "Bash(git commit *)"
     ]
   }
 }
