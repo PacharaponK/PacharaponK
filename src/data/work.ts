@@ -12,6 +12,8 @@ export interface Project {
   year?: string;
   role?: string;
   status?: string;
+  images?: string[];
+  videoUrl?: string;
   links?: {
     live?: string;
     github?: string;
@@ -27,6 +29,12 @@ export const projects: Project[] = [
     description: "WEBSITE",
     tech: "React, Express.js, Tailwind",
     imageUrl: "/image/barcamp-songklah/1.png",
+    images: [
+      "/image/barcamp-songklah/1.png",
+      "/image/barcamp-songklah/2.png",
+      "/image/barcamp-songklah/3.png",
+      "/image/barcamp-songklah/4.png",
+    ],
     fullDescription:
       "เว็บไซต์สำหรับงาน Barcamp Songkhla ที่รวบรวมข้อมูลและการลงทะเบียนสำหรับผู้เข้าร่วมงาน",
     features: [
@@ -48,7 +56,11 @@ export const projects: Project[] = [
     title: "Kruly Registration System",
     description: "WEBSITE",
     tech: "Next.js, Tailwind, NestJS, LIFF",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Kruly+System",
+    imageUrl: "/image/kruly-registration/1.png",
+    images: [
+      "/image/kruly-registration/1.png",
+      "/image/kruly-registration/2.png",
+    ],
     fullDescription:
       "ระบบลงทะเบียนแบบครบวงจรที่เชื่อมต่อกับ LINE LIFF สำหรับการยืนยันตัวตนและการสื่อสาร",
     features: [
@@ -71,7 +83,16 @@ export const projects: Project[] = [
     title: "Pick and Pay",
     description: "WEBSITE, IOT, COMPUTER VISION AI",
     tech: "Next.js, Express.js, YOLOv5, ESP32",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Pick+and+Pay",
+    imageUrl: "/image/pick-and-pay/1.JPEG",
+    images: [
+      "/image/pick-and-pay/1.JPEG",
+      "/image/pick-and-pay/2.JPEG",
+      "/image/pick-and-pay/3.JPEG",
+      "/image/pick-and-pay/4.JPEG",
+      "/image/pick-and-pay/5.JPEG",
+      "/image/pick-and-pay/6.JPEG",
+    ],
+    videoUrl: "https://www.youtube.com/embed/FsJNyG4nvdE",
     fullDescription:
       "ระบบชำระเงินอัตโนมัติด้วย Computer Vision ที่สามารถตรวจจับสินค้าและคำนวณราคาอัตโนมัติ",
     features: [
@@ -94,8 +115,10 @@ export const projects: Project[] = [
     title: "Real-time Vehicle Detection",
     description: "WEBSITE, COMPUTER VISION AI",
     tech: "Next.js, Express.js, YOLOv5, OpenCV",
-    imageUrl:
-      "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Vehicle+Detection",
+    imageUrl: "/image/vehicle-detection/Slide_Dtect-Group.png",
+    images: [
+      "/image/vehicle-detection/Slide_Dtect-Group.png",
+    ],
     fullDescription:
       "ระบบตรวจจับยานพาหนะแบบ Real-time สำหรับการจัดการจราจรและการนับจำนวนรถ",
     features: [
@@ -118,7 +141,13 @@ export const projects: Project[] = [
     title: "Archive BIA",
     description: "WEBSITE, AI/ML",
     tech: "Next.js, FastAPI, Python",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=Archive+BIA",
+    imageUrl: "/image/archives-bia/1.png",
+    images: [
+      "/image/archives-bia/1.png",
+      "/image/archives-bia/2.png",
+      "/image/archives-bia/3.png",
+      "/image/archives-bia/4.png",
+    ],
     fullDescription: "ระบบคลังเอกสารอัจฉริยะที่ใช้ AI ในการช่วยจัดหมวดหมู่และค้นหาข้อมูลประสิทธิภาพสูง",
     features: ["AI Document Classification", "Advanced Search", "Metadata Management"],
     year: "2025",
