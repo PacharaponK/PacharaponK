@@ -148,11 +148,11 @@ function StickyImage({
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject}
-                initial={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
+                initial={{ opacity: 0, scale: 1.02, filter: "blur(4px)" }}
                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/10 flex items-center justify-center p-8 lg:p-12 group"
+                exit={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/10 flex items-center justify-center p-2 group"
               >
                 <div className="relative w-full h-full">
                   <Image
@@ -168,7 +168,7 @@ function StickyImage({
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
+                  transition={{ delay: 0.1, duration: 0.25 }}
                   className="absolute bottom-6 left-6"
                 >
                   <div className="px-5 py-2 bg-black/60 backdrop-blur-md rounded-full text-xs font-mono text-white/80 shadow-sm border border-white/10 flex items-center gap-2">
@@ -181,7 +181,7 @@ function StickyImage({
                 <motion.div
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
+                  transition={{ delay: 0.15, duration: 0.25 }}
                   className="absolute top-6 right-6"
                 >
                   <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-mono text-white/60 uppercase tracking-widest border border-white/10">
@@ -227,7 +227,7 @@ function StickyImage({
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 flex items-center justify-center p-6"
         >
           <div className="relative w-full h-full max-w-sm">
