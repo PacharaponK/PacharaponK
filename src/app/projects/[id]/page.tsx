@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { projects } from "@/data/work";
@@ -121,17 +122,51 @@ export default function ProjectDetailPage() {
               </div>
             </RevealOnScroll>
 
-            {/* Project Image */}
-            <RevealOnScroll>
-              <div
-                className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5"
-                style={{
-                  backgroundImage: `url('${project.imageUrl}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-            </RevealOnScroll>
+            {/* Demo Video */}
+            {project.videoUrl && (
+              <RevealOnScroll>
+                <h2 className="font-mono text-xs text-gray-400 mb-4 tracking-wider">DEMO VIDEO</h2>
+                <div className="w-full aspect-video rounded-2xl overflow-hidden border border-black/5">
+                  <iframe
+                    src={project.videoUrl}
+                    title={`${project.title} demo`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+              </RevealOnScroll>
+            )}
+
+            {/* Project Images */}
+            {project.images && project.images.length > 0 ? (
+              <RevealOnScroll className="mt-8">
+                <div className={`grid gap-4 ${project.images.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
+                  {project.images.map((src, i) => (
+                    <div key={i} className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5">
+                      <Image
+                        src={src}
+                        alt={`${project.title} screenshot ${i + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </RevealOnScroll>
+            ) : (
+              <RevealOnScroll className="mt-8">
+                <div
+                  className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5"
+                  style={{
+                    backgroundImage: `url('${project.imageUrl}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+              </RevealOnScroll>
+            )}
 
             {/* Tech Stack */}
             {project.tech && (
