@@ -3,9 +3,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Register GSAP plugins
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 interface HeroTextProps {
   text: string;
@@ -42,6 +43,12 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
           stagger: 0.03,
           delay: delay,
           onComplete: () => {
+            // Remove overflow hidden after entrance animation to allow scattering out of bounds
+            if (containerRef.current) {
+              containerRef.current.classList.remove("overflow-hidden");
+              containerRef.current.classList.add("overflow-visible");
+            }
+
             // Add hover effects after entrance animation
             splitRef.current?.chars.forEach((char) => {
               char.addEventListener("mouseenter", () => {
@@ -65,6 +72,33 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
                 });
               });
             });
+
+            // Gravity cascade on scroll out — chars fall with index-based depth, like dominoes
+            const header = containerRef.current?.closest("header");
+            if (header && splitRef.current) {
+              const chars = splitRef.current.chars;
+              const total = chars.length;
+              gsap.to(chars, {
+                y: (i: number) => {
+                  const norm = total > 1 ? i / (total - 1) : 0.5; // 0..1 left to right
+                  return 500 + norm * 700; // rightmost char falls farthest
+                },
+                x: (i: number) => {
+                  const norm = total > 1 ? i / (total - 1) : 0.5;
+                  return (norm - 0.5) * gsap.utils.random(150, 400);
+                },
+                rotation: (i: number) => (i % 2 === 0 ? 1 : -1) * gsap.utils.random(60, 200),
+                scale: 0,
+                opacity: 0,
+                ease: "power3.in",
+                scrollTrigger: {
+                  trigger: header,
+                  start: "top top",
+                  end: "bottom top",
+                  scrub: 2,
+                },
+              });
+            }
           },
         }
       );
@@ -84,7 +118,7 @@ export default function HeroText({ text, isLoaded, delay = 0 }: HeroTextProps) {
   return (
     <div
       ref={containerRef}
-      className="block overflow-hidden whitespace-nowrap text-[13vw] sm:text-[15vw] md:text-[15vw] font-black"
+      className="block overflow-hidden whitespace-normal break-all sm:whitespace-nowrap sm:break-normal text-[30vw] sm:text-[15vw] font-black"
       style={{ perspective: "1000px", opacity: 0 }}
     >
       {text}

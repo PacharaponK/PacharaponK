@@ -292,8 +292,8 @@ export default function ScrollytellingWork() {
 
     const navEl = document.querySelector<HTMLElement>(".nav-glass");
 
-    const hideNav = () => gsap.to(navEl, { y: "-150%", xPercent: -50, duration: 0.4, ease: "power2.inOut" });
-    const showNav = () => gsap.to(navEl, { y: "0%", xPercent: -50, duration: 0.4, ease: "power2.inOut" });
+    const hideNav = () => gsap.to(navEl, { y: "-150%", duration: 0.4, ease: "power2.inOut" });
+    const showNav = () => gsap.to(navEl, { y: "0%", duration: 0.4, ease: "power2.inOut" });
 
     const navTrigger = navEl
       ? ScrollTrigger.create({
@@ -334,7 +334,7 @@ export default function ScrollytellingWork() {
   return (
     <section
       id="work"
-      className="relative border-b border-white/10"
+      className="relative border-b border-white/10 bg-[#0d0d0f]"
       ref={sectionRef}
     >
       {/* ── WebGL shader background — sticky so it fills the viewport as you scroll ── */}

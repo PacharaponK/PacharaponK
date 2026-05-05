@@ -218,12 +218,16 @@
    BASE STYLES
    ============================================ */
 
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
   cursor: none;
-  overflow-x: hidden;
 }
 
 /* Hide default cursor for all elements */

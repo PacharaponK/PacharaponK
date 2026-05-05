@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`nav-glass fixed left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-50 px-4 sm:px-6 flex items-center justify-between rounded-full transition-all duration-500 ${scrolled ? "top-2 py-1.5 sm:py-2 nav-glass--scrolled" : "top-3 sm:top-4 py-2.5 sm:py-3"}`}>
+      <nav className={`nav-glass fixed left-0 right-0 mx-auto w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-50 px-4 sm:px-6 flex items-center justify-between rounded-full transition-all duration-500 ${scrolled ? "top-2 py-1.5 sm:py-2 nav-glass--scrolled" : "top-3 sm:top-4 py-2.5 sm:py-3"}`}>
         <MagneticButton
           as="a"
           href="#"
@@ -55,7 +55,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {mobileOpen && (
-        <div className="md:hidden fixed top-[56px] sm:top-[64px] left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-40 bg-white/95 backdrop-blur-xl rounded-2xl border border-black/5 shadow-xl overflow-hidden">
+        <div className="md:hidden fixed top-[56px] sm:top-[64px] left-0 right-0 mx-auto w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-5xl z-40 bg-white/95 backdrop-blur-xl rounded-2xl border border-black/5 shadow-xl overflow-hidden">
           <nav className="flex flex-col p-4">
             {[
               { href: "#about", label: "About" },

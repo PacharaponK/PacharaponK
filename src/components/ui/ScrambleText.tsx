@@ -3,9 +3,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Register GSAP plugins
-gsap.registerPlugin(ScrambleTextPlugin);
+gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger);
 
 interface ScrambleTextProps {
   text: string;
@@ -90,6 +91,34 @@ export default function ScrambleText({
               });
             });
           });
+
+          // Upward fan explosion on scroll out — each char arcs outward like fireworks
+          const header = element.closest("header");
+          if (header) {
+            const total = spans.length;
+            gsap.to(spans, {
+              x: (i: number) => {
+                const norm = total > 1 ? i / (total - 1) : 0.5; // 0..1 left to right
+                const angle = (norm - 0.5) * Math.PI * 1.6;    // -0.8π .. 0.8π
+                return Math.sin(angle) * gsap.utils.random(500, 1000);
+              },
+              y: (i: number) => {
+                const norm = total > 1 ? i / (total - 1) : 0.5;
+                const angle = (norm - 0.5) * Math.PI * 1.6;
+                return -Math.cos(angle * 0.6) * gsap.utils.random(400, 900);
+              },
+              rotation: () => gsap.utils.random(-720, 720),
+              scale: 0,
+              opacity: 0,
+              ease: "power3.in",
+              scrollTrigger: {
+                trigger: header,
+                start: "top top",
+                end: "bottom top",
+                scrub: 2,
+              },
+            });
+          }
         },
       });
     }
@@ -104,7 +133,7 @@ export default function ScrambleText({
   return (
     <div
       ref={containerRef}
-      className={`block whitespace-nowrap text-[13vw] sm:text-[15vw] md:text-[15vw] font-black ${className}`}
+      className={`block whitespace-normal break-all sm:whitespace-nowrap sm:break-normal text-[30vw] sm:text-[15vw] font-black ${className}`}
       style={{ opacity: 0 }}
     >
       {/* Initial placeholder - will be replaced by scramble animation */}
