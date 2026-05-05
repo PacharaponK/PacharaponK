@@ -4,7 +4,7 @@ import { useMemo, memo, useState, useCallback, useEffect } from "react";
 import AnimatedText from "@/components/ui/AnimatedText";
 import Sticker from "@/components/ui/Sticker";
 import MagneticButton from "@/components/ui/MagneticButton";
-import { ArrowUpRight, ExternalLink, ChevronDown, Loader2 } from "lucide-react";
+import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp, Loader2 } from "lucide-react";
 import Image from "next/image";
 import { categories, certifications } from "@/data/certifications";
 
@@ -100,10 +100,11 @@ export default function CertificationGallery({
 }: {
   onImageClick?: (image: string) => void;
 }) {
-  const ITEMS_PER_PAGE = BENTO_SIZES.length; // = 15, one full bento pattern cycle → always fills grid
+  const INITIAL_COUNT = 7;
+  const ITEMS_PER_PAGE = BENTO_SIZES.length;
 
   const [activeCategory, setActiveCategory] = useState("All");
-  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [isLoading, setIsLoading] = useState(false);
 
   const filteredCertifications = useMemo(
@@ -120,11 +121,12 @@ export default function CertificationGallery({
   );
 
   const hasMore = visibleCount < filteredCertifications.length;
+  const canCollapse = visibleCount > INITIAL_COUNT;
   const remaining = filteredCertifications.length - visibleCount;
 
   // Reset visible count when category changes
   useEffect(() => {
-    setVisibleCount(ITEMS_PER_PAGE);
+    setVisibleCount(INITIAL_COUNT);
   }, [activeCategory]);
 
   const handleCategoryChange = useCallback((cat: string) => {
@@ -133,12 +135,15 @@ export default function CertificationGallery({
 
   const handleShowMore = useCallback(() => {
     setIsLoading(true);
-    // Simulate slight delay for a smoother feel
     setTimeout(() => {
       setVisibleCount((prev) => Math.min(prev + ITEMS_PER_PAGE, filteredCertifications.length));
       setIsLoading(false);
     }, 300);
   }, [filteredCertifications.length]);
+
+  const handleShowLess = useCallback(() => {
+    setVisibleCount(INITIAL_COUNT);
+  }, []);
 
   const stickers = useMemo(
     () => (
@@ -208,7 +213,7 @@ export default function CertificationGallery({
       </div>
 
       {/* Masonry / Bento Grid */}
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] gap-3 md:gap-4">
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense gap-3 md:gap-4">
         {visibleCertifications.map((cert, i) => {
           // For small filtered lists, fall back to uniform sizing
           const sizeClass = filteredCertifications.length > 4
@@ -234,20 +239,31 @@ export default function CertificationGallery({
           {activeCategory === "All" ? "All Categories" : activeCategory}
         </p>
 
-        {hasMore && (
-          <button
-            onClick={handleShowMore}
-            disabled={isLoading}
-            className="group flex items-center gap-2.5 px-7 py-3 rounded-full border border-black/15 bg-white text-sm font-mono text-gray-600 shadow-sm hover:bg-black hover:text-white hover:border-black hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {isLoading ? (
-              <Loader2 size={15} className="animate-spin" />
-            ) : (
-              <ChevronDown size={15} className="transition-transform duration-300 group-hover:translate-y-0.5" />
-            )}
-            {isLoading ? "Loading..." : `Show ${Math.min(ITEMS_PER_PAGE, remaining)} more`}
-          </button>
-        )}
+        <div className="flex items-center gap-3">
+          {hasMore && (
+            <button
+              onClick={handleShowMore}
+              disabled={isLoading}
+              className="group flex items-center gap-2.5 px-7 py-3 rounded-full border border-black/15 bg-white text-sm font-mono text-gray-600 shadow-sm hover:bg-black hover:text-white hover:border-black hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {isLoading ? (
+                <Loader2 size={15} className="animate-spin" />
+              ) : (
+                <ChevronDown size={15} className="transition-transform duration-300 group-hover:translate-y-0.5" />
+              )}
+              {isLoading ? "Loading..." : `Show ${Math.min(ITEMS_PER_PAGE, remaining)} more`}
+            </button>
+          )}
+          {canCollapse && (
+            <button
+              onClick={handleShowLess}
+              className="group flex items-center gap-2.5 px-7 py-3 rounded-full border border-black/15 bg-white text-sm font-mono text-gray-600 shadow-sm hover:bg-black hover:text-white hover:border-black hover:shadow-lg transition-all duration-300"
+            >
+              <ChevronUp size={15} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
+              Show less
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );
