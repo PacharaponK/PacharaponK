@@ -295,15 +295,18 @@ export default function ScrollytellingWork() {
     const hideNav = () => gsap.to(navEl, { y: "-150%", duration: 0.4, ease: "power2.inOut" });
     const showNav = () => gsap.to(navEl, { y: "0%", duration: 0.4, ease: "power2.inOut" });
 
+    const enterDark = () => { document.body.style.backgroundColor = "#0d0d0f"; };
+    const exitDark  = () => { document.body.style.backgroundColor = "#FAF9F6"; };
+
     const navTrigger = navEl
       ? ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top 80px",
         end: "bottom top",
-        onEnter: hideNav,
-        onLeave: showNav,
-        onEnterBack: hideNav,
-        onLeaveBack: showNav,
+        onEnter: () => { hideNav(); enterDark(); },
+        onLeave: () => { showNav(); exitDark(); },
+        onEnterBack: () => { hideNav(); enterDark(); },
+        onLeaveBack: () => { showNav(); exitDark(); },
       })
       : null;
 
@@ -322,6 +325,7 @@ export default function ScrollytellingWork() {
       navTrigger?.kill();
       if (navEl) gsap.set(navEl, { clearProps: "transform" });
       triggers.forEach((t) => t?.kill());
+      document.body.style.backgroundColor = "";
     };
   }, []);
 
