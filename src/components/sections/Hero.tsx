@@ -6,7 +6,6 @@ import Sticker from "@/components/ui/Sticker";
 import ScrambleText from "@/components/ui/ScrambleText";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import MagneticButton from "@/components/ui/MagneticButton";
-import HeroText from "@/components/ui/HeroText";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -159,7 +158,13 @@ export default function Hero({ isLoaded }: HeroProps) {
             </>
           )}
           <h1 className="font-heading font-extrabold tracking-tighter leading-[0.8] text-primary select-none cursor-default relative z-10">
-            <HeroText text="KETKAEW" isLoaded={isLoaded} delay={0.8} />
+            <ScrambleText
+                text="KETKAEW"
+                isLoaded={isLoaded}
+                delay={0.8}
+                duration={1.8}
+                speed={0.4}
+              />
           </h1>
         </div>
       </div>
