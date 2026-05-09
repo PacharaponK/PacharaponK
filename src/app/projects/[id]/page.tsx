@@ -205,6 +205,30 @@ export default function ProjectDetailPage() {
               </RevealOnScroll>
             )}
 
+            {/* Documents */}
+            {project.documents && project.documents.length > 0 && (
+              <RevealOnScroll className="mt-12">
+                <h2 className="font-mono text-xs text-gray-400 mb-4 tracking-wider">DOCUMENTS</h2>
+                <div className="flex flex-wrap gap-3">
+                  {project.documents.map((doc) => (
+                    <a
+                      key={doc.path}
+                      href={doc.path}
+                      download
+                      className="hover-trigger inline-flex items-center gap-2 px-5 py-2.5 bg-black/[0.04] border border-black/10 text-primary rounded-full font-mono text-sm hover:bg-black/10 transition-colors"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                      </svg>
+                      <span>{doc.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </RevealOnScroll>
+            )}
+
             {/* Links */}
             {project.links && (project.links.live || project.links.github) && (
               <RevealOnScroll className="mt-12">

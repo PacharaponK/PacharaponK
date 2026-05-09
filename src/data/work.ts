@@ -18,6 +18,10 @@ export interface Project {
     live?: string;
     github?: string;
   };
+  documents?: {
+    label: string;
+    path: string;
+  }[];
 }
 
 export const projects: Project[] = [
@@ -117,12 +121,15 @@ export const projects: Project[] = [
     ],
     videoUrl: "https://www.youtube.com/embed/FsJNyG4nvdE",
     fullDescription:
-      "ระบบชำระเงินอัตโนมัติด้วย Computer Vision ที่สามารถตรวจจับสินค้าและคำนวณราคาอัตโนมัติ",
+      "ต้นแบบร้านค้าไร้คนขาย ลูกค้าเดินเข้าร้านผ่านประตูที่เปิดอัตโนมัติ หยิบสินค้าจากชั้นวางที่ชั่งน้ำหนักเองได้ แล้วจ่ายเงินด้วยบัตร RFID หรือกรอกรหัสผ่านแป้นตัวเลข เมื่อชำระเงินสำเร็จ ประตูทางออกจะเปิดให้อัตโนมัติ พร้อมหน้าจอแสดงรายการสินค้าและราคาภายในร้าน",
     features: [
-      "Object Detection with YOLOv5",
-      "ESP32 IoT Integration",
-      "Automatic Pricing",
-      "Real-time Dashboard",
+      "Servo-driven Gate Entry & Exit (API-triggered on payment success)",
+      "Dual Load Cell (HX711) product weight detection for snacks & water",
+      "Servo Pusher & Slider product delivery mechanism",
+      "RFID Card + 4x4 Keypad payment input",
+      "Multi-MCU architecture: 2× Arduino UNO + ESP32 + ODROID C4",
+      "Temperature monitoring with auto-cooling (DHT22 overheat protection)",
+      "Next.js web dashboard displayed on in-store ODROID C4 screen",
     ],
     year: "2025",
     role: "Lead Developer",
@@ -130,6 +137,10 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/PacharaponK/pick-and-pay",
     },
+    documents: [
+      { label: "PICK and Pay Report", path: "/image/pick-and-pay/PICK and Pay.pdf" },
+      { label: "รายงาน Pick and Pay", path: "/image/pick-and-pay/รายงาน Pick and Pay.pdf" },
+    ],
   },
   {
     id: "vehicle-detection",
@@ -137,18 +148,19 @@ export const projects: Project[] = [
     category: "CoE Project",
     title: "Real-time Vehicle Detection",
     description: "WEBSITE, COMPUTER VISION AI",
-    tech: "Next.js, Express.js, YOLOv5, OpenCV",
+    tech: "Next.js, Node.js, YOLOv5, OpenCV, GCP",
     imageUrl: "/image/vehicle-detection/Slide_Dtect-Group.png",
     images: [
       "/image/vehicle-detection/Slide_Dtect-Group.png",
     ],
     fullDescription:
-      "ระบบตรวจจับยานพาหนะแบบ Real-time สำหรับการจัดการจราจรและการนับจำนวนรถ",
+      "ระบบตรวจจับและนับยานพาหนะแบบ Real-time ชื่อโปรเจกต์ CarTally พัฒนาบน Next.js พร้อม Node.js Backend ใช้โมเดล YOLO ตรวจจับรถยนต์ คำนวณความเร็ว และแสดงผลผ่าน Dashboard รองรับหลายผู้ใช้พร้อมกัน Deploy บน Google Cloud Platform",
     features: [
-      "Real-time Detection",
-      "Vehicle Counting",
-      "Traffic Analysis",
-      "Data Visualization",
+      "Real-time Vehicle Detection with YOLO",
+      "Vehicle Speed Calculation",
+      "Multi-user Dashboard",
+      "Traffic Analytics & History",
+      "Google Cloud Deployment (Compute Engine, GKE, Cloud SQL)",
     ],
     year: "2024",
     role: "AI/ML Developer",
@@ -156,6 +168,10 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/PacharaponK/Yolo-Vehicle-Detection-Web",
     },
+    documents: [
+      { label: "Project Report", path: "/image/vehicle-detection/Report_Dtect-Group.pdf" },
+      { label: "Presentation Slides", path: "/image/vehicle-detection/Slide_Dtect-Group.pdf" },
+    ],
   },
   {
     id: "bite-score",
@@ -221,6 +237,28 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/PacharaponK/HighLearnHub",
     },
+  },
+  {
+    id: "smart-coe-monitoring",
+    number: "10",
+    category: "CoE Project",
+    title: "Smart CoE Monitoring",
+    description: "WEBSITE, IOT",
+    tech: "Next.js, ESP32, AWS IoT, Raspberry Pi",
+    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=SmartCoE",
+    fullDescription:
+      "ระบบเฝ้าระวังสภาพแวดล้อมอัจฉริยะภายในอาคารภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยสงขลานครินทร์ ติดตั้งเซ็นเซอร์ตรวจวัดอุณหภูมิ ความชื้น แสง และเสียงแบบเรียลไทม์ ด้วยสถาปัตยกรรม Hierarchical IoT และ Dual Edge Gateway บน AWS Serverless",
+    features: [
+      "Real-time Environment Monitoring (Temp, Humidity, Light, Sound)",
+      "Dual Edge Gateway with Auto-failover (Raspberry Pi 5 & 3)",
+      "AWS Serverless Architecture (IoT Core, Lambda, DynamoDB, S3)",
+      "Discord Alert Notifications",
+      "Energy Analytics Dashboard",
+      "ESP-CAM Room Snapshot",
+    ],
+    year: "2025",
+    role: "Developer",
+    status: "Closed",
   },
 ];
 
