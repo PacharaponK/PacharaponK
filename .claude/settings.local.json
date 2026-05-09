@@ -16,7 +16,13 @@
       "Bash(Select-Object -First 30 FullName)",
       "Bash(Remove-Item -Recurse -Force 'D:\\\\PacharaponK\\\\.next\\\\cache\\\\images' -ErrorAction SilentlyContinue)",
       "Bash(Write-Host \"Cache cleared\")",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "PowerShell(Get-ChildItem \"D:\\\\PacharaponK\\\\work-data\" -Recurse | ForEach-Object { $_.FullName })",
+      "Bash(python3 *)",
+      "Bash(pip install *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\PacharaponK\\\\public\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(npm run *)"
     ]
   }
 }
