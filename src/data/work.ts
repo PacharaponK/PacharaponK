@@ -73,6 +73,7 @@ export const projects: Project[] = [
     role: "Developer",
     status: "DEVELOPMENT",
     links: {
+      live: "https://bia-archive.psu.ac.th/",
       github: "https://github.com/PacharaponK/",
     },
   },

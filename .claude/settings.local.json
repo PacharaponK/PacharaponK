@@ -22,7 +22,9 @@
       "Bash(pip install *)",
       "Bash(Get-ChildItem -Path \"D:\\\\PacharaponK\\\\public\" -Recurse -File)",
       "Bash(Select-Object FullName)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(Get-Content \"D:\\\\PacharaponK\\\\src\\\\app\\\\globals.css\")",
+      "Bash(Select-Object -Last 60)"
     ]
   }
 }

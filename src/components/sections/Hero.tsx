@@ -77,7 +77,7 @@ export default function Hero({ isLoaded }: HeroProps) {
   }, [isLoaded]);
 
   return (
-    <header ref={heroRef} className="relative h-screen flex flex-col justify-between pt-28 md:pt-32 pb-28 md:pb-36 px-4 md:px-12 border-b border-black/5 overflow-hidden">
+    <header ref={heroRef} className="relative h-screen flex flex-col justify-between pt-16 md:pt-20 pb-10 md:pb-14 px-4 md:px-12 border-b border-black/5 overflow-hidden">
       {/* TOP: Large Text (Left) */}
       <div ref={topRef} className="z-10 w-full relative">
         {isLoaded && (
