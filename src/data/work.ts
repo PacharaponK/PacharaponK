@@ -158,8 +158,40 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "vehicle-detection",
+    id: "smart-coe-monitoring",
     number: "05",
+    category: "CoE Project",
+    title: "Smart CoE Monitoring",
+    description: "WEBSITE, IOT",
+    tech: "Next.js, ESP32, AWS IoT, Raspberry Pi",
+    imageUrl: "/image/smart-coe-monitoring/architecture-diagram.png",
+    images: [
+      "/image/smart-coe-monitoring/1.png",
+      "/image/smart-coe-monitoring/2.png",
+      "/image/smart-coe-monitoring/architecture-diagram.png",
+      "/image/smart-coe-monitoring/detailed-achitecture-diagram.png",
+    ],
+    fullDescription:
+      "ระบบเฝ้าระวังสภาพแวดล้อมอัจฉริยะภายในอาคารภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยสงขลานครินทร์ ติดตั้งเซ็นเซอร์ตรวจวัดอุณหภูมิ ความชื้น แสง และเสียงแบบเรียลไทม์ ด้วยสถาปัตยกรรม Hierarchical IoT และ Dual Edge Gateway บน AWS Serverless",
+    features: [
+      "Real-time Environment Monitoring (Temp, Humidity, Light, Sound)",
+      "Dual Edge Gateway with Auto-failover (Raspberry Pi 5 & 3)",
+      "AWS Serverless Architecture (IoT Core, Lambda, DynamoDB, S3)",
+      "Discord Alert Notifications",
+      "Energy Analytics Dashboard",
+      "ESP-CAM Room Snapshot",
+    ],
+    year: "2025",
+    role: "Developer",
+    status: "Closed",
+    documents: [
+      { label: "Report", path: "/image/smart-coe-monitoring/smart-coe-monitoring_report.pdf" },
+      { label: "Slide", path: "/image/smart-coe-monitoring/smart-coe-monitoring_slide.pdf" },
+    ],
+  },
+  {
+    id: "vehicle-detection",
+    number: "06",
     category: "CoE Project",
     title: "Real-time Vehicle Detection",
     description: "WEBSITE, COMPUTER VISION AI",
@@ -190,7 +222,7 @@ export const projects: Project[] = [
   },
   {
     id: "bite-score",
-    number: "06",
+    number: "07",
     category: "CoE Project",
     title: "BiteScore",
     description: "WEBSITE, AI/ML",
@@ -207,7 +239,7 @@ export const projects: Project[] = [
   },
   {
     id: "psu-formhub",
-    number: "07",
+    number: "08",
     category: "PUPA TEAM",
     title: "PSU FormHub",
     description: "WEBSITE",
@@ -224,7 +256,7 @@ export const projects: Project[] = [
   },
   {
     id: "ivory",
-    number: "08",
+    number: "09",
     category: "PUPA TEAM",
     title: "Ivory",
     description: "WEBSITE",
@@ -238,7 +270,7 @@ export const projects: Project[] = [
   },
   {
     id: "highlearnhub",
-    number: "09",
+    number: "10",
     category: "CoE Project",
     title: "HighLearnHub",
     description: "WEBSITE",
@@ -252,28 +284,6 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/PacharaponK/HighLearnHub",
     },
-  },
-  {
-    id: "smart-coe-monitoring",
-    number: "10",
-    category: "CoE Project",
-    title: "Smart CoE Monitoring",
-    description: "WEBSITE, IOT",
-    tech: "Next.js, ESP32, AWS IoT, Raspberry Pi",
-    imageUrl: "https://placehold.co/600x400/e5e5e5/1a1a1a?text=SmartCoE",
-    fullDescription:
-      "ระบบเฝ้าระวังสภาพแวดล้อมอัจฉริยะภายในอาคารภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยสงขลานครินทร์ ติดตั้งเซ็นเซอร์ตรวจวัดอุณหภูมิ ความชื้น แสง และเสียงแบบเรียลไทม์ ด้วยสถาปัตยกรรม Hierarchical IoT และ Dual Edge Gateway บน AWS Serverless",
-    features: [
-      "Real-time Environment Monitoring (Temp, Humidity, Light, Sound)",
-      "Dual Edge Gateway with Auto-failover (Raspberry Pi 5 & 3)",
-      "AWS Serverless Architecture (IoT Core, Lambda, DynamoDB, S3)",
-      "Discord Alert Notifications",
-      "Energy Analytics Dashboard",
-      "ESP-CAM Room Snapshot",
-    ],
-    year: "2025",
-    role: "Developer",
-    status: "Closed",
   },
 ];
 
