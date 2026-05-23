@@ -169,9 +169,9 @@ export default function About({ isLoaded }: AboutProps) {
               <div className="p-6 bg-white border border-black/5 rounded-2xl shadow-sm">
                 <p className="font-mono text-xs text-gray-400 mb-2">CURRENTLY LEARNING</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">GL</div>
+                  <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">SK</div>
                   <div>
-                    <p className="font-bold text-sm">WebGL & Shaders</p>
+                    <p className="font-bold text-sm">SKILL.md</p>
                     <p className="text-xs text-gray-500">Advanced creative coding techniques</p>
                   </div>
                 </div>

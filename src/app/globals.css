@@ -390,6 +390,15 @@ a, button, [role="button"], input, select, textarea, label, [tabindex] {
       top var(--duration-800) var(--ease-smooth);
   }
 
+  /* Hide scrollbar for carousels */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Reveal Animation */
   .reveal-up {
     opacity: 0;

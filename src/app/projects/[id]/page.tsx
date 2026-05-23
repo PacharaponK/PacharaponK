@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useRef, useEffect } from "react";
 import { projects } from "@/data/work";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -11,6 +12,26 @@ import GradientBlob from "@/components/ui/GradientBlob";
 export default function ProjectDetailPage() {
   const params = useParams();
   const projectId = params.id as string;
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (dir: "prev" | "next") => {
+    if (!carouselRef.current) return;
+    carouselRef.current.scrollBy({ left: dir === "next" ? 300 : -300, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const interval = setInterval(() => {
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
+      if (atEnd) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: 300, behavior: "smooth" });
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const project = projects.find((p) => p.id === projectId);
 
@@ -168,6 +189,48 @@ export default function ProjectDetailPage() {
               </RevealOnScroll>
             )}
 
+            {/* Atmosphere Gallery */}
+            {project.atmosphere && project.atmosphere.length > 0 && (
+              <RevealOnScroll className="mt-16">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h2 className="font-mono text-xs text-gray-400 tracking-wider">ATMOSPHERE</h2>
+                    <p className="text-gray-400 text-xs mt-0.5 font-thai">ภาพบรรยากาศจากงาน</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => scrollCarousel("prev")}
+                      className="hover-trigger w-8 h-8 rounded-full border border-black/10 bg-white flex items-center justify-center text-gray-500 hover:bg-black hover:text-white hover:border-black transition-colors"
+                    >
+                      ←
+                    </button>
+                    <button
+                      onClick={() => scrollCarousel("next")}
+                      className="hover-trigger w-8 h-8 rounded-full border border-black/10 bg-white flex items-center justify-center text-gray-500 hover:bg-black hover:text-white hover:border-black transition-colors"
+                    >
+                      →
+                    </button>
+                  </div>
+                </div>
+                <div ref={carouselRef} className="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-hide">
+                  {project.atmosphere.map((src, i) => (
+                    <div
+                      key={i}
+                      className="relative flex-none w-72 aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden border border-black/5 snap-start"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${project.title} atmosphere ${i + 1}`}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-700"
+                        sizes="288px"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </RevealOnScroll>
+            )}
+
             {/* Tech Stack */}
             {project.tech && (
               <RevealOnScroll className="mt-12">
@@ -230,7 +293,7 @@ export default function ProjectDetailPage() {
             )}
 
             {/* Links */}
-            {project.links && (project.links.live || project.links.github) && (
+            {project.links && (project.links.live || project.links.github || project.links.facebook) && (
               <RevealOnScroll className="mt-12">
                 <h2 className="font-mono text-xs text-gray-400 mb-4 tracking-wider">LINKS</h2>
                 <div className="flex flex-wrap gap-4">
@@ -243,6 +306,19 @@ export default function ProjectDetailPage() {
                     >
                       <span>View Live Site</span>
                       <span>↗</span>
+                    </a>
+                  )}
+                  {project.links.facebook && (
+                    <a
+                      href={project.links.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover-trigger inline-flex items-center gap-2 px-6 py-3 bg-[#1877F2] text-white rounded-full font-mono text-sm hover:bg-[#1565d8] transition-colors"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                      </svg>
+                      <span>Facebook Page</span>
                     </a>
                   )}
                   {project.links.github && (

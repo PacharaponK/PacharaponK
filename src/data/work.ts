@@ -17,11 +17,13 @@ export interface Project {
   links?: {
     live?: string;
     github?: string;
+    facebook?: string;
   };
   documents?: {
     label: string;
     path: string;
   }[];
+  atmosphere?: string[];
 }
 
 export const projects: Project[] = [
@@ -51,7 +53,18 @@ export const projects: Project[] = [
     status: "Production",
     links: {
       live: "https://barcampsongkhla.org/",
+      facebook: "https://www.facebook.com/BarcampSongkhla",
     },
+    atmosphere: [
+      "/image/barcamp-songklah/atmosphere/DSC04098.JPEG",
+      "/image/barcamp-songklah/atmosphere/DSC04184.JPEG",
+      "/image/barcamp-songklah/atmosphere/DSC04226.JPEG",
+      "/image/barcamp-songklah/atmosphere/DSC04286.JPEG",
+      "/image/barcamp-songklah/atmosphere/DSC04289.JPEG",
+      "/image/barcamp-songklah/atmosphere/DSC04343.JPEG",
+      "/image/barcamp-songklah/atmosphere/IMG20260228115514.JPEG",
+      "/image/barcamp-songklah/atmosphere/IMG20260228171711.JPEG",
+    ],
   },
   {
     id: "archive-bia",
@@ -74,7 +87,7 @@ export const projects: Project[] = [
     status: "DEVELOPMENT",
     links: {
       live: "https://bia-archive.psu.ac.th/",
-      github: "https://github.com/PacharaponK/",
+      facebook: "https://www.facebook.com/buddhadasaarchives/?locale=th_TH",
     },
   },
   {
@@ -102,6 +115,7 @@ export const projects: Project[] = [
     status: "Production",
     links: {
       live: "https://kruly-liff-884715781180.asia-southeast1.run.app/",
+      facebook: "https://www.facebook.com/BaanKruLy/?locale=th_TH",
     },
   },
   {
