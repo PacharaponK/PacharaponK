@@ -24,7 +24,9 @@
       "Bash(Select-Object FullName)",
       "Bash(npm run *)",
       "Bash(Get-Content \"D:\\\\PacharaponK\\\\src\\\\app\\\\globals.css\")",
-      "Bash(Select-Object -Last 60)"
+      "Bash(Select-Object -Last 60)",
+      "Bash(Get-ChildItem \"D:\\\\PacharaponK\\\\work-data\" -Recurse -Depth 1)",
+      "Bash(Select-Object FullName, PSIsContainer)"
     ]
   }
 }
