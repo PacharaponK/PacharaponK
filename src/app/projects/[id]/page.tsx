@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { projects } from "@/data/work";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -13,6 +13,28 @@ export default function ProjectDetailPage() {
   const params = useParams();
   const projectId = params.id as string;
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveImage(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    if (activeImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [activeImage]);
 
   const scrollCarousel = (dir: "prev" | "next") => {
     if (!carouselRef.current) return;
@@ -164,12 +186,16 @@ export default function ProjectDetailPage() {
               <RevealOnScroll className="mt-8">
                 <div className={`grid gap-4 ${project.images.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
                   {project.images.map((src, i) => (
-                    <div key={i} className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5">
+                    <div 
+                      key={i} 
+                      className="hover-trigger relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5 cursor-zoom-in group transition-all duration-500 hover:scale-[1.02] hover:shadow-lg"
+                      onClick={() => setActiveImage(src)}
+                    >
                       <Image
                         src={src}
                         alt={`${project.title} screenshot ${i + 1}`}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
@@ -179,12 +205,13 @@ export default function ProjectDetailPage() {
             ) : (
               <RevealOnScroll className="mt-8">
                 <div
-                  className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5"
+                  className="hover-trigger w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden border border-black/5 cursor-zoom-in transition-all duration-500 hover:scale-[1.02] hover:shadow-lg"
                   style={{
                     backgroundImage: `url('${project.imageUrl}')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
+                  onClick={() => setActiveImage(project.imageUrl)}
                 />
               </RevealOnScroll>
             )}
@@ -216,7 +243,8 @@ export default function ProjectDetailPage() {
                   {project.atmosphere.map((src, i) => (
                     <div
                       key={i}
-                      className="relative flex-none w-72 aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden border border-black/5 snap-start"
+                      className="hover-trigger relative flex-none w-72 aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden border border-black/5 snap-start cursor-zoom-in"
+                      onClick={() => setActiveImage(src)}
                     >
                       <Image
                         src={src}
@@ -349,6 +377,45 @@ export default function ProjectDetailPage() {
           </div>
         </section>
       </main>
+
+      {/* Fullscreen Lightbox Modal */}
+      {activeImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 cursor-zoom-out animate-fade-in"
+          onClick={() => setActiveImage(null)}
+        >
+          {/* Close Button */}
+          <button 
+            className="hover-trigger absolute top-6 right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 z-50 focus:outline-none"
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveImage(null);
+            }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          {/* Main Image */}
+          <div 
+            className="relative w-full max-w-5xl h-full max-h-[85vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full animate-zoom-in">
+              <Image
+                src={activeImage}
+                alt="Fullscreen project view"
+                fill
+                className="object-contain rounded-lg selection:bg-transparent"
+                sizes="100vw"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

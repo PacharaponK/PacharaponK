@@ -517,3 +517,23 @@ a, button, [role="button"], input, select, textarea, label, [tabindex] {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* Lightbox Animations */
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
