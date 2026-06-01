@@ -263,6 +263,9 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/PacharaponK/PSU_OpenAPI_Contest",
     },
+    documents: [
+      { label: "Presentation Slide", path: "https://canva.link/62m5g6v3w4q0bjg" },
+    ],
   },
   {
     id: "highlearnhub",

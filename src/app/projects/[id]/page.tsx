@@ -305,7 +305,10 @@ export default function ProjectDetailPage() {
                     <a
                       key={doc.path}
                       href={doc.path}
-                      download
+                      {...(doc.path.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : { download: true }
+                      )}
                       className="hover-trigger inline-flex items-center gap-2 px-5 py-2.5 bg-black/[0.04] border border-black/10 text-primary rounded-full font-mono text-sm hover:bg-black/10 transition-colors"
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
