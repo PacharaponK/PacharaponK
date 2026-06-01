@@ -13,6 +13,7 @@ import Navbar from "@/components/layout/Navbar";
 import ScrollingTextCarousel from "@/components/sections/ScrollingTextCarousel";
 import ScrollytellingWork from "@/components/sections/ScrollytellingWork";
 import CertificationGallery from "@/components/sections/CertificationGallery";
+import Activities from "@/components/sections/Activities";
 
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
@@ -45,6 +46,7 @@ export default function Portfolio() {
       <ScrollingTextCarousel />
       <ScrollytellingWork />
       <CertificationGallery onImageClick={setSelectedImage} />
+      <Activities />
       <Contact />
 
       <ImageModal

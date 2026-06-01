@@ -537,3 +537,8 @@ a, button, [role="button"], input, select, textarea, label, [tabindex] {
   to { transform: scale(1); opacity: 1; }
 }
 
+@keyframes slide-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+

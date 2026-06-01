@@ -71,6 +71,29 @@ export const certifications = [
     color: "from-purple-400 to-pink-300",
   },
 
+  {
+    id: 16,
+    title: "Gemini Certified — University Student",
+    issuer: "Google",
+    date: "2025",
+    image: "/image/dev-cert/87686049-5517-4949-b105-4785a675f055.png",
+    link: "#",
+    category: "Developer",
+    icon: Code,
+    color: "from-blue-400 to-purple-400",
+  },
+  {
+    id: 17,
+    title: "Claude Code in Action",
+    issuer: "Anthropic",
+    date: "2026",
+    image: "/image/dev-cert/certificate-sikh5mczjuom-1768402665.jpg",
+    link: "#",
+    category: "Developer",
+    icon: Code,
+    color: "from-stone-500 to-green-700",
+  },
+
   // Security Certifications
   {
     id: 7,
