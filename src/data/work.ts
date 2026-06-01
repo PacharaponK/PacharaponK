@@ -246,6 +246,9 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/PacharaponK/BiteScore",
     },
+    documents: [
+      { label: "Presentation Slide", path: "https://canva.link/8suq55ky47kjxfk" },
+    ],
   },
   {
     id: "psu-formhub",
