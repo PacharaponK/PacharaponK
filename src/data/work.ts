@@ -261,7 +261,7 @@ export const projects: Project[] = [
     role: "Developer",
     status: "Closed",
     links: {
-      github: "https://github.com/PacharaponK/PSUFormHub",
+      github: "https://github.com/PacharaponK/PSU_OpenAPI_Contest",
     },
   },
   {
