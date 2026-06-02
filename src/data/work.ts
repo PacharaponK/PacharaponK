@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "ระบบจัดการ Session",
     ],
     year: "2025",
-    role: "Full-Stack Developer, DevOps Engineer",
+    role: "Full-Stack Developer",
     status: "Production",
     links: {
       live: "https://barcampsongkhla.org/",
@@ -109,8 +109,8 @@ export const projects: Project[] = [
     images: [
       "/image/smart-coe-monitoring/1.png",
       "/image/smart-coe-monitoring/2.png",
+      "/image/smart-coe-monitoring/image.jpg",
       "/image/smart-coe-monitoring/architecture-diagram.png",
-      "/image/smart-coe-monitoring/detailed-achitecture-diagram.png",
     ],
     fullDescription:
       "ระบบเฝ้าระวังสภาพแวดล้อมอัจฉริยะภายในอาคารภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยสงขลานครินทร์ ติดตั้งเซ็นเซอร์ตรวจวัดอุณหภูมิ ความชื้น แสง และเสียงแบบเรียลไทม์ ด้วยสถาปัตยกรรม Hierarchical IoT และ Dual Edge Gateway บน AWS Serverless",
@@ -128,6 +128,7 @@ export const projects: Project[] = [
     documents: [
       { label: "Report", path: "/image/smart-coe-monitoring/smart-coe-monitoring_report.pdf" },
       { label: "Slide", path: "/image/smart-coe-monitoring/smart-coe-monitoring_slide.pdf" },
+      { label: "Detailed Architecture", path: "/image/smart-coe-monitoring/detailed-achitecture-diagram.png" },
     ],
   },
   {
