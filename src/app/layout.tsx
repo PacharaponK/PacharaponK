@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   title: "Pacharapon Ketkaew - Software Engineer",
   description: "Full Stack Developer - พัฒนาระบบดิจิทัลด้วย Software Engineering และ Full-Stack Development และการเชื่อมโยง AI, IoT และ Web Technology สร้างโซลูชันที่ตอบโจทย์และใช้งานได้จริง",
   icons: {
-    icon: "/Gemini_Generated_Image_xtr82xxtr82xxtr8.png",
+    icon: "/icon.png",
   },
 };
 
