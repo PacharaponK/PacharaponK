@@ -92,7 +92,12 @@ function ProjectCard({
           {project.role && (
             <>
               <span className="h-3 w-px bg-white/20" />
-              <span className="font-mono text-xs text-white/40">{project.role}</span>
+              {project.role.split(", ").map((r, i) => (
+                <span key={r} className="flex items-center gap-3">
+                  {i > 0 && <span className="text-white/20">·</span>}
+                  <span className="font-mono text-xs text-white/40">{r}</span>
+                </span>
+              ))}
             </>
           )}
           {project.status && (

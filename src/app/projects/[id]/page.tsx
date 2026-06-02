@@ -149,7 +149,11 @@ export default function ProjectDetailPage() {
                 {project.role && (
                   <div>
                     <h3 className="font-mono text-[10px] text-gray-400 uppercase tracking-wider mb-1">Role</h3>
-                    <p className="font-mono text-sm text-primary">{project.role}</p>
+                    <div className="flex flex-col gap-0.5">
+                      {project.role.split(", ").map((r) => (
+                        <p key={r} className="font-mono text-sm text-primary">{r}</p>
+                      ))}
+                    </div>
                   </div>
                 )}
                 <div>
