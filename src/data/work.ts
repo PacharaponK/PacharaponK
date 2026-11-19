@@ -199,15 +199,18 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "vehicle-detection",
+    id: "cartally",
     number: "06",
     category: "CoE Project",
-    title: "Real-time Vehicle Detection",
+    title: "CarTally",
     description: "WEBSITE, COMPUTER VISION AI",
     tech: "Next.js, Node.js, YOLOv5, OpenCV, GCP",
-    imageUrl: "/image/vehicle-detection/Slide_Dtect-Group.png",
+    imageUrl: "/image/cartally/3.png",
     images: [
-      "/image/vehicle-detection/Slide_Dtect-Group.png",
+      "/image/cartally/3.png",
+      "/image/cartally/Slide_Dtect-Group.png",
+      "/image/cartally/1.png",
+      "/image/cartally/2.png",
     ],
     fullDescription:
       "ระบบตรวจจับและนับยานพาหนะแบบ Real-time ชื่อโปรเจกต์ CarTally พัฒนาบน Next.js พร้อม Node.js Backend ใช้โมเดล YOLO ตรวจจับรถยนต์ คำนวณความเร็ว และแสดงผลผ่าน Dashboard รองรับหลายผู้ใช้พร้อมกัน Deploy บน Google Cloud Platform",
@@ -225,8 +228,8 @@ export const projects: Project[] = [
       github: "https://github.com/PacharaponK/Yolo-Vehicle-Detection-Web",
     },
     documents: [
-      { label: "Project Report", path: "/image/vehicle-detection/Report_Dtect-Group.pdf" },
-      { label: "Presentation Slides", path: "/image/vehicle-detection/Slide_Dtect-Group.pdf" },
+      { label: "Project Report", path: "/image/cartally/Report_Dtect-Group.pdf" },
+      { label: "Presentation Slides", path: "/image/cartally/Slide_Dtect-Group.pdf" },
     ],
   },
   {
