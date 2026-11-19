@@ -142,6 +142,7 @@ export function WebGLShader({ className = "fixed top-0 left-0 w-full h-full bloc
 
     return () => {
       observer.disconnect()
+      observer.takeRecords()
       stop()
       if (refs.mesh) {
         refs.scene?.remove(refs.mesh)
