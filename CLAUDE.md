@@ -105,7 +105,7 @@ Heading sizes in the work section use `text-4xl` → `text-6xl` with `tracking-t
 
 ### Global UI patterns
 
-**`.hover-trigger`** — add this class to any interactive element to enlarge the custom cursor ring when hovered. All `<a>`, `<button>`, and `<Link>` elements that the user should notice should have it.
+**`.hover-trigger`** — opt an interactive element into the custom cursor's blue hover state. Links and buttons trigger it by default.
 
 **`.reveal-up`** / **`.reveal-up.active`** — use `<RevealOnScroll>` instead of writing this directly. The wrapper adds `.active` via `IntersectionObserver`.
 
@@ -117,7 +117,7 @@ Heading sizes in the work section use `text-4xl` → `text-6xl` with `tracking-t
 
 ### Custom cursor
 
-Two overlapping `div`s (`.cursor-dot` 8 px filled, `.cursor-outline` 40 px ring). When hovering a `.hover-trigger` element, `.cursor-outline` expands to 80 px and becomes a blur overlay. Inside `#work`, both flip to a light variant (`cursor-dot--light`, `cursor-outline--light`) because the background is dark. Desktop only — hidden on mobile via `hidden md:block`.
+`.portfolio-cursor` draws a charcoal arrow with a warm off-white edge and turns royal blue over interactive elements. The arrow tip marks the click point. The custom cursor activates on mouse movement on devices with a fine pointer. Form fields, zoom targets, and forced-colors mode use the native cursor. Reduced motion applies the color change immediately.
 
 ### z-index layers
 

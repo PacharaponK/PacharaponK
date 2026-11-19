@@ -1,91 +1,39 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null);
-  const outlineRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isLight, setIsLight] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const workSection = document.querySelector<HTMLElement>("#work");
+    const cursor = cursorRef.current;
+    if (!cursor) return;
 
-    const onWorkEnter = () => setIsLight(true);
-    const onWorkLeave = () => setIsLight(false);
+    const hideCursor = () => cursor.removeAttribute("data-active");
 
-    workSection?.addEventListener("mouseenter", onWorkEnter);
-    workSection?.addEventListener("mouseleave", onWorkLeave);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const posX = e.clientX;
-      const posY = e.clientY;
-
-      if (dotRef.current) {
-        dotRef.current.style.left = `${posX}px`;
-        dotRef.current.style.top = `${posY}px`;
+    const moveCursor = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse") {
+        hideCursor();
+        return;
       }
 
-      if (outlineRef.current) {
-        outlineRef.current.style.left = `${posX}px`;
-        outlineRef.current.style.top = `${posY}px`;
-      }
+      cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+      cursor.toggleAttribute("data-active", true);
     };
 
-    const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target;
-      if (!target || !(target instanceof Element)) return;
-
-      try {
-        const isHoverTrigger =
-          target.classList.contains("hover-trigger") ||
-          target.closest(".hover-trigger");
-
-        if (isHoverTrigger) {
-          setIsHovered(true);
-        }
-      } catch {
-        // Ignore errors from non-Element targets
-      }
-    };
-
-    const handleMouseLeave = (e: MouseEvent) => {
-      const target = e.target;
-      if (!target || !(target instanceof Element)) return;
-
-      try {
-        const isHoverTrigger =
-          target.classList.contains("hover-trigger") ||
-          target.closest(".hover-trigger");
-
-        if (isHoverTrigger) {
-          setIsHovered(false);
-        }
-      } catch {
-        // Ignore errors from non-Element targets
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseenter", handleMouseEnter, true);
-    document.addEventListener("mouseleave", handleMouseLeave, true);
+    const root = document.documentElement;
+    window.addEventListener("pointermove", moveCursor, { passive: true });
+    root.addEventListener("pointerleave", hideCursor);
+    window.addEventListener("pointercancel", hideCursor);
+    window.addEventListener("blur", hideCursor);
 
     return () => {
-      workSection?.removeEventListener("mouseenter", onWorkEnter);
-      workSection?.removeEventListener("mouseleave", onWorkLeave);
-      window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseenter", handleMouseEnter, true);
-      document.removeEventListener("mouseleave", handleMouseLeave, true);
+      window.removeEventListener("pointermove", moveCursor);
+      root.removeEventListener("pointerleave", hideCursor);
+      window.removeEventListener("pointercancel", hideCursor);
+      window.removeEventListener("blur", hideCursor);
     };
   }, []);
 
-  return (
-    <>
-      <div ref={dotRef} className={`cursor-dot hidden md:block ${isLight ? "cursor-dot--light" : ""}`}></div>
-      <div
-        ref={outlineRef}
-        className={`cursor-outline hidden md:block ${isHovered ? "hovered" : ""} ${isLight ? "cursor-outline--light" : ""}`}
-      ></div>
-    </>
-  );
+  return <div ref={cursorRef} className="portfolio-cursor" aria-hidden="true" />;
 }

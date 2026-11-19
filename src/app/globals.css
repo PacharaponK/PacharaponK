@@ -227,16 +227,28 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
-  cursor: none;
 }
 
-/* Hide default cursor for all elements */
-*, *::before, *::after {
-  cursor: none !important;
+.portfolio-cursor {
+  display: none;
 }
 
-a, button, [role="button"], input, select, textarea, label, [tabindex] {
-  cursor: none !important;
+@media (hover: hover) and (pointer: fine) and (forced-colors: none) {
+  body:has(.portfolio-cursor[data-active]):not(:has(:where(
+    #preloader, input, select, textarea, [contenteditable]:not([contenteditable="false"]),
+    .cursor-zoom-in, .cursor-zoom-out
+  ):hover)) {
+    &,
+    & *,
+    & *::before,
+    & *::after {
+      cursor: none !important;
+    }
+
+    .portfolio-cursor {
+      display: block;
+    }
+  }
 }
 
 /* Custom Scrollbar */
@@ -305,53 +317,42 @@ a, button, [role="button"], input, select, textarea, label, [tabindex] {
   }
 
   /* Custom Cursor */
-  .cursor-dot,
-  .cursor-outline {
+  .portfolio-cursor {
     position: fixed;
     top: 0;
     left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: var(--radius-full);
+    width: 18px;
+    height: 23px;
     z-index: var(--z-cursor);
     pointer-events: none;
-  }
-  
-  .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-primary);
-    transition: transform var(--duration-100);
-  }
-  
-  .cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgb(0 0 0 / 0.4);
-    transition: 
-      width var(--duration-200),
-      height var(--duration-200),
-      background-color var(--duration-200),
-      transform var(--duration-100);
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.4));
   }
 
-  .cursor-outline.hovered {
-    width: 80px;
-    height: 80px;
-    background-color: rgb(0 0 0 / 0.05);
-    border-color: transparent;
-    backdrop-filter: blur(2px);
+  .portfolio-cursor::before,
+  .portfolio-cursor::after {
+    content: "";
+    position: absolute;
+    inset: 0;
   }
 
-  .cursor-dot--light {
-    background-color: white;
+  .portfolio-cursor::before {
+    background: var(--color-background);
+    clip-path: polygon(0 0, 18px 12px, 11px 14px, 14px 21px, 10px 23px, 6px 16px, 2px 20px);
   }
 
-  .cursor-outline--light {
-    border-color: rgb(255 255 255 / 0.5);
+  .portfolio-cursor::after {
+    background: var(--color-primary);
+    clip-path: polygon(2px 3px, 14px 11px, 9px 13px, 12px 20px, 10px 21px, 7px 13px, 3px 17px);
   }
 
-  .cursor-outline--light.hovered {
-    background-color: rgb(255 255 255 / 0.08);
+  body:has(:where(.hover-trigger, a[href], button, [role="button"], .cursor-pointer):hover:not(:disabled, [aria-disabled="true"])) .portfolio-cursor::after {
+    background: var(--color-accent);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .portfolio-cursor::after {
+      transition: background-color var(--duration-100) var(--ease-smooth);
+    }
   }
 
   /* Noise Texture Overlay */
