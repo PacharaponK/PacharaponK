@@ -348,7 +348,7 @@ export default function ScrollytellingWork() {
     >
       {/* ── WebGL shader background — sticky so it fills the viewport as you scroll ── */}
       <div className="sticky top-0 h-0 pointer-events-none">
-        <WebGLShader className="absolute top-0 left-0 w-full h-screen block" />
+        <WebGLShader sectionRef={sectionRef} className="absolute top-0 left-0 w-full h-screen block" />
         <div className="absolute top-0 left-0 w-full h-screen bg-black/25 pointer-events-none" />
       </div>
 
