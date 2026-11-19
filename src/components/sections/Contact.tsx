@@ -76,7 +76,7 @@ export default function Contact() {
               href="https://github.com/PacharaponK"
               className="hover-trigger hover:text-[#2563EB] transition-colors flex items-center gap-2"
             >
-              GitHub <ArrowUpRight className="w-4 h-4" />
+              GitHub · PacharaponK <ArrowUpRight className="w-4 h-4" />
             </a>
             <a
               href="https://www.facebook.com/pacharapon.ketkaew/"
