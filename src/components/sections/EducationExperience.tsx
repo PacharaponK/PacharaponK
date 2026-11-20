@@ -54,6 +54,19 @@ export default function EducationExperience() {
             </li>
 
             <li className={`${entry} ${branch}`}>
+              <Image src="/image/affiliations/bonmek.webp" alt="" width={144} height={144} sizes="48px" className={`${logo} bg-white p-1`} />
+              <div className={details}>
+                <div className="space-y-0.5">
+                  <p lang="en" className={`${name} font-heading`}>Bonmek</p>
+                  <p>ฝึกงานระยะสั้น</p>
+                </div>
+                <p className={dates}>
+                  กลาง <time dateTime="2025-04">เม.ย.</time> – กลาง <time dateTime="2025-05">พ.ค. 2025</time>
+                </p>
+              </div>
+            </li>
+
+            <li className={`${entry} ${branch}`}>
               <Image src="/image/affiliations/sony.webp" alt="" width={144} height={25} sizes="48px" className={`${logo} bg-black p-1`} />
               <div className={details}>
                 <div className="space-y-0.5">
