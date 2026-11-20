@@ -8,13 +8,14 @@ interface SmoothScrollProps {
   children: ReactNode;
 }
 
-function ScrollToTop() {
+function ScrollOnNavigation() {
   const pathname = usePathname();
   const lenis = useLenis();
 
   useEffect(() => {
     if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
+      const target = document.querySelector<HTMLElement>(":target");
+      lenis.scrollTo(target ?? 0, { immediate: true });
     }
   }, [pathname, lenis]);
 
@@ -24,7 +25,7 @@ function ScrollToTop() {
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
-      <ScrollToTop />
+      <ScrollOnNavigation />
       {children}
     </ReactLenis>
   );

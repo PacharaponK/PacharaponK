@@ -3,7 +3,7 @@ export default function EducationExperience() {
     <section
       id="education-experience"
       aria-labelledby="education-experience-title"
-      className="border-b border-black/5 bg-background px-6 py-16 md:px-12 md:py-24"
+      className="scroll-mt-32 border-b border-black/5 bg-background px-6 py-16 md:px-12 md:py-24"
     >
       <h2
         id="education-experience-title"
