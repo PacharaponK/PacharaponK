@@ -343,7 +343,7 @@ export default function ScrollytellingWork() {
   return (
     <section
       id="work"
-      className="relative border-b border-white/10 bg-[#0d0d0f]"
+      className="relative overflow-clip border-b border-white/10 bg-[#0d0d0f]"
       ref={sectionRef}
     >
       {/* ── WebGL shader background — sticky so it fills the viewport as you scroll ── */}
