@@ -12,6 +12,7 @@ import Contact from "@/components/sections/Contact";
 import Navbar from "@/components/layout/Navbar";
 import ScrollingTextCarousel from "@/components/sections/ScrollingTextCarousel";
 import ScrollytellingWork from "@/components/sections/ScrollytellingWork";
+import EducationExperience from "@/components/sections/EducationExperience";
 import CertificationGallery from "@/components/sections/CertificationGallery";
 import Activities from "@/components/sections/Activities";
 
@@ -45,6 +46,7 @@ export default function Portfolio() {
       <About isLoaded={isLoaded} />
       <ScrollingTextCarousel />
       <ScrollytellingWork />
+      <EducationExperience />
       <CertificationGallery onImageClick={setSelectedImage} />
       <Activities />
       <Contact />
