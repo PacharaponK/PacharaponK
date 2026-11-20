@@ -1,60 +1,73 @@
+import Image from "next/image";
+
+const entry = "group relative flex items-start gap-3";
+const stem = "after:absolute after:top-6 after:left-6 after:w-px after:bg-accent-200";
+const branch = "pb-4 pl-6 last:pb-0 before:absolute before:top-0 before:bottom-0 before:left-0 before:w-px before:bg-accent-200 last:before:bottom-auto last:before:h-6 after:absolute after:top-6 after:left-0 after:h-px after:w-6 after:bg-accent-200";
+const logo = "relative z-10 size-12 shrink-0 rounded-lg border border-black/10 object-contain motion-safe:transition-colors group-hover:border-accent/40";
+const details = "grid min-w-0 flex-1 gap-1 @xl:grid-cols-[minmax(0,1fr)_12rem] @xl:gap-x-6";
+const name = "text-base font-semibold leading-snug text-primary";
+const dates = "text-xs leading-relaxed tabular-nums text-secondary @xl:text-right";
+
 export default function EducationExperience() {
   return (
-    <section
-      id="education-experience"
-      aria-labelledby="education-experience-title"
-      className="scroll-mt-32 border-t border-black/5 p-8 md:scroll-mt-56 md:px-16 md:py-12"
-    >
-      <h3
-        id="education-experience-title"
-        lang="en"
-        className="mb-7 font-heading text-2xl font-bold tracking-tight text-primary md:mb-9 md:text-3xl"
-      >
+    <div id="education-experience" className="@container mt-8 scroll-mt-56 border-t border-black/5 pt-6">
+      <h3 lang="en" className="mb-5 font-mono text-xs uppercase tracking-widest text-secondary">
         Education &amp; Experience
       </h3>
+      <ol role="list" className="font-thai text-sm leading-relaxed text-secondary">
+        <li className={`${entry} ${stem} pb-5 after:-bottom-6`}>
+          <Image src="/image/affiliations/suratpittaya.webp" alt="" width={144} height={128} sizes="48px" className={`${logo} bg-white p-1`} />
+          <div className={details}>
+            <div className="space-y-0.5">
+              <p className={name}>โรงเรียนสุราษฎร์พิทยา</p>
+              <p>มัธยมศึกษาตอนปลาย แผนการเรียนวิทย์–คณิต</p>
+            </div>
+            <p className={dates}>จบปี <time dateTime="2023">2023</time> (พ.ศ. 2566)</p>
+          </div>
+        </li>
 
-      <div className="grid gap-7 md:grid-cols-2 md:gap-12">
-        <div>
-          <h4 lang="en" className="mb-3 font-heading text-lg font-semibold text-primary">
-            Education
-          </h4>
-          <ul className="border-t border-black/15 font-thai text-secondary">
-            <li className="space-y-1 border-b border-black/10 py-4">
-              <h5 className="text-lg font-semibold text-primary">มหาวิทยาลัยสงขลานครินทร์</h5>
-              <p>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์</p>
-              <p className="text-sm">
+        <li>
+          <div className={`${entry} ${stem} pb-4 after:bottom-0`}>
+            <Image src="/image/affiliations/psu.webp" alt="" width={144} height={55} sizes="48px" className={`${logo} bg-white p-1`} />
+            <div className={details}>
+              <div className="space-y-0.5">
+                <p className={name}>มหาวิทยาลัยสงขลานครินทร์</p>
+                <p>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์</p>
+                <p>เกรดเฉลี่ยสะสม <strong className="font-semibold tabular-nums text-primary">3.93</strong></p>
+              </div>
+              <p className={dates}>
                 <time dateTime="2023-06">มิ.ย. 2023</time> – คาดว่าจะจบ <time dateTime="2027-03">มี.ค. 2027</time>
               </p>
-              <p className="text-sm">เกรดเฉลี่ยสะสม <strong className="text-primary">3.93</strong></p>
-            </li>
-            <li className="space-y-1 py-4">
-              <h5 className="text-lg font-semibold text-primary">โรงเรียนสุราษฎร์พิทยา</h5>
-              <p>มัธยมศึกษาตอนปลาย แผนการเรียนวิทย์–คณิต</p>
-              <p className="text-sm">จบปี <time dateTime="2023">2023</time> (พ.ศ. 2566)</p>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
 
-        <div>
-          <h4 lang="en" className="mb-3 font-heading text-lg font-semibold text-primary">
-            Experience
-          </h4>
-          <ul className="border-t border-black/15 font-thai text-secondary">
-            <li className="space-y-1 border-b border-black/10 py-4">
-              <h5 lang="en" className="font-heading text-lg font-semibold text-primary">Sony Device Technology</h5>
-              <p><span lang="en">Fullstack Developer</span> · สหกิจศึกษา 4 เดือน</p>
-              <p className="text-sm">
-                เริ่ม <time dateTime="2026-11-16">16 พ.ย. 2026</time> · กำหนดสิ้นสุด <time dateTime="2027-03-19">19 มี.ค. 2027</time>
-              </p>
+          <ol role="list" aria-label="ประสบการณ์ระหว่างเรียนที่ ม.อ." className="ml-6">
+            <li className={`${entry} ${branch}`}>
+              <Image src="/image/affiliations/pupa.webp" alt="" width={140} height={140} sizes="48px" className={`${logo} bg-black`} />
+              <div className={details}>
+                <div className="space-y-0.5">
+                  <p lang="en" className={`${name} font-heading`}>PUPA</p>
+                  <p lang="en">Software Engineer</p>
+                </div>
+                <p className={dates}>ปี 1 เทอม 2 จนถึงก่อนเริ่มสหกิจศึกษา</p>
+              </div>
             </li>
-            <li className="space-y-1 py-4">
-              <h5 lang="en" className="font-heading text-lg font-semibold text-primary">PUPA</h5>
-              <p lang="en">Software Engineer</p>
-              <p className="text-sm">ตั้งแต่ปี 1 เทอม 2 จนถึงก่อนเริ่มสหกิจศึกษา</p>
+
+            <li className={`${entry} ${branch}`}>
+              <Image src="/image/affiliations/sony.webp" alt="" width={144} height={25} sizes="48px" className={`${logo} bg-black p-1`} />
+              <div className={details}>
+                <div className="space-y-0.5">
+                  <p lang="en" className={`${name} font-heading`}>Sony Device Technology</p>
+                  <p><span lang="en">Fullstack Developer</span> · สหกิจศึกษา 4 เดือน</p>
+                </div>
+                <p className={dates}>
+                  <time dateTime="2026-11-16">16 พ.ย. 2026</time> – <time dateTime="2027-03-19">19 มี.ค. 2027</time> (กำหนดสิ้นสุด)
+                </p>
+              </div>
             </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+          </ol>
+        </li>
+      </ol>
+    </div>
   );
 }

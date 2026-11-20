@@ -16,13 +16,13 @@ export default function About({ isLoaded }: AboutProps) {
     <section id="about" className="border-b border-black/5 bg-white relative">
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen">
 
-        {/* Left Column: About Me (Sticky on large desktop only) */}
-        <div className="lg:col-span-7 p-8 md:p-16 lg:p-12 xl:p-16 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col relative overflow-hidden xl:h-screen xl:sticky xl:top-0">
+        {/* Left Column: About Me */}
+        <div className="lg:col-span-7 p-8 md:p-16 lg:p-12 xl:p-16 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col relative overflow-hidden">
           {isLoaded && (
             <Sticker type="sparkle" className="w-12 h-12 top-10 right-10 opacity-20" delay={0.5} />
           )}
 
-          <div className="flex flex-col h-full justify-between py-12 lg:py-0">
+          <div className="flex flex-col py-12 lg:py-0">
             <RevealOnScroll>
               <h2 className="text-sm font-mono text-gray-400 mb-8 flex items-center gap-3 uppercase tracking-widest">
                 <span className="w-2 h-2 rounded-full bg-primary"></span>
@@ -71,7 +71,7 @@ export default function About({ isLoaded }: AboutProps) {
                 </div>
 
                 <div className="pt-6 border-t border-black/5">
-                  <h4 className="font-mono text-xs text-gray-400 mb-5 uppercase tracking-widest">What I Do</h4>
+                  <h3 className="mb-5 font-mono text-xs uppercase tracking-widest text-secondary">What I Do</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
                     {services.map((service, i) => (
                       <li key={i} className="flex items-center gap-3 group cursor-default">
@@ -88,7 +88,9 @@ export default function About({ isLoaded }: AboutProps) {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll className="mt-8 xl:mt-auto pt-6 border-t border-black/5 flex flex-wrap items-center justify-between gap-4">
+            <EducationExperience />
+
+            <RevealOnScroll className="mt-8 pt-6 border-t border-black/5 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="relative flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -181,7 +183,6 @@ export default function About({ isLoaded }: AboutProps) {
           </RevealOnScroll>
         </div>
       </div>
-      <EducationExperience />
     </section>
   );
 }
