@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import EducationExperience from "@/components/sections/EducationExperience";
 import Sticker from "@/components/ui/Sticker";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -23,10 +24,10 @@ export default function About({ isLoaded }: AboutProps) {
 
           <div className="flex flex-col h-full justify-between py-12 lg:py-0">
             <RevealOnScroll>
-              <h3 className="text-sm font-mono text-gray-400 mb-8 flex items-center gap-3 uppercase tracking-widest">
+              <h2 className="text-sm font-mono text-gray-400 mb-8 flex items-center gap-3 uppercase tracking-widest">
                 <span className="w-2 h-2 rounded-full bg-primary"></span>
                 ( About Me )
-              </h3>
+              </h2>
 
               <div className="space-y-8 relative z-10">
                 {/* Profile Section with Image */}
@@ -180,6 +181,7 @@ export default function About({ isLoaded }: AboutProps) {
           </RevealOnScroll>
         </div>
       </div>
+      <EducationExperience />
     </section>
   );
 }

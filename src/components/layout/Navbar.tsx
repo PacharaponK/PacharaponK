@@ -31,7 +31,6 @@ export default function Navbar() {
           <div className="flex items-center gap-4 lg:gap-6 font-mono text-xs text-secondary">
             <a href="#about" className="hover-trigger hover:text-primary transition-colors">About</a>
             <a href="#work" className="hover-trigger hover:text-primary transition-colors">Work</a>
-            <a href="#education-experience" className="hover-trigger hover:text-primary transition-colors">Education</a>
             <a href="#certifications" className="hover-trigger hover:text-primary transition-colors">Certification</a>
             <a href="#activities" className="hover-trigger hover:text-primary transition-colors">Activities</a>
             <a href="#contact" className="hover-trigger hover:text-primary transition-colors">Contact</a>
@@ -62,7 +61,6 @@ export default function Navbar() {
             {[
               { href: "#about", label: "About" },
               { href: "#work", label: "Work" },
-              { href: "#education-experience", label: "Education" },
               { href: "#certifications", label: "Certification" },
               { href: "#activities", label: "Activities" },
               { href: "#contact", label: "Contact" },
